@@ -11,8 +11,9 @@ export default function SearchBar({ onFormSubmit, getInput }) {
 				placeholder="Search..."
 				/* onChange={(e) => getInput(e.target.value)} */
 				onSubmit={onFormSubmit}
-				width={150}
+				width={15}
 			/>
+
 			<Button variant="raised">Search</Button>
 		</div>
 	)
