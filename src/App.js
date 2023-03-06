@@ -114,7 +114,7 @@ function App() {
 	}, [])
 
 	return (
-		<div>
+		<div style={{ padding: '10px' }}>
 			<GlobalStyles />
 			<ThemeProvider theme={original}>
 				<SearchBar onFormSubmit={handleSubmit} />

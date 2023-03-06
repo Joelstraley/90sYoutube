@@ -9,10 +9,19 @@ import {
 	ScrollView,
 } from 'react95'
 
+import { MediaPlayer } from 'win95-media-player'
+
 export default function SelectedVideo({ selectedVideo, loading, percent }) {
 	console.log('test', selectedVideo)
 	if (!selectedVideo) return <></>
 	const videoSrc = `https://www.youtube.com/embed/${selectedVideo.id.videoId}`
+
+	const playlist = [
+		{
+			url: videoSrc,
+			title: selectedVideo.snippet.title,
+		},
+	]
 	return (
 		<>
 			{loading ? (
@@ -26,7 +35,13 @@ export default function SelectedVideo({ selectedVideo, loading, percent }) {
 							<span>{selectedVideo.snippet.title}</span>
 						</WindowHeader>
 						<WindowContent style={{ padding: '1rem' }}>
-							<Frame>
+							<Frame style={{ borderRadius: '10px' }}>
+								{/* 		<MediaPlayer
+									className="player"
+									playlist={playlist}
+									showVideo
+									fullscreenEnabled
+								/> */}
 								<iframe
 									className="Selected-Video__src"
 									title="Video Player"

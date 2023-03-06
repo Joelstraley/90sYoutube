@@ -14,7 +14,7 @@ function VideoItem({ video, onVideoSelect }) {
 					text={`Launch ${video.snippet.title} in Media Player`}
 					/* enterDelay={100}
 					leaveDelay={500} */
-					style={{ 'z-index': 10 }}>
+					style={{ zIndex: 10 }}>
 					<ScrollView id="cutout">
 						<img
 							className="Selected-Video__src"
