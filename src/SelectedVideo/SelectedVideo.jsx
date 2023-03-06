@@ -6,10 +6,11 @@ import {
 	Window,
 	WindowHeader,
 	WindowContent,
+	ScrollView,
 } from 'react95'
 
 export default function SelectedVideo({ selectedVideo, loading, percent }) {
-	/* 	console.log('test', selectedVideo) */
+	console.log('test', selectedVideo)
 	if (!selectedVideo) return <></>
 	const videoSrc = `https://www.youtube.com/embed/${selectedVideo.id.videoId}`
 	return (
@@ -24,13 +25,13 @@ export default function SelectedVideo({ selectedVideo, loading, percent }) {
 						<WindowHeader className="window-title">
 							<span>{selectedVideo.snippet.title}</span>
 						</WindowHeader>
-						<Frame>
-							<iframe
-								className="Selected-Video__src"
-								title="Video Player"
-								src={videoSrc}></iframe>
-						</Frame>
-						<WindowContent>
+						<WindowContent style={{ padding: '1rem' }}>
+							<Frame>
+								<iframe
+									className="Selected-Video__src"
+									title="Video Player"
+									src={videoSrc}></iframe>
+							</Frame>
 							<p>{selectedVideo.snippet.channelTitle}</p>
 							<p>{selectedVideo.snippet.description}</p>
 						</WindowContent>

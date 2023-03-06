@@ -54,7 +54,7 @@ const GlobalStyles = createGlobalStyle`
 function App() {
 	const [videoList, setVideoList] = useState([])
 	const [selectedVideo, setSelectedVideo] = useState(null)
-	const [searchTerm, setSearchTerm] = useState('search')
+	/* const [searchTerm, setSearchTerm] = useState('search') */
 
 	const [loading, setLoading] = useState(false)
 	const [percent, setPercent] = useState(0)
@@ -80,9 +80,9 @@ function App() {
 		}
 	}, [selectedVideo]) */
 
-	const getInput = (input) => {
+	/* 	const getInput = (input) => {
 		setSearchTerm(input)
-	}
+	} */
 	const onVideoSelect = (video) => {
 		setSelectedVideo(video)
 	}
@@ -90,7 +90,6 @@ function App() {
 	const handleSubmit = async (searchTerm) => {
 		try {
 			/* setLoading(true) */
-			console.log('app', process.env.REACT_APP_YOUTUBE_API_KEY)
 			const res = await youtube.get('search', {
 				params: {
 					part: 'snippet',
@@ -101,8 +100,9 @@ function App() {
 			})
 			console.log('res', res)
 			/* 	setLoading(false) */
-			setVideoList(res.data.items)
 			setSelectedVideo(res.data.items[0])
+			res.data.items.shift()
+			setVideoList(res.data.items)
 		} catch (err) {
 			console.error(err)
 			setSelectedVideo('error')
@@ -117,16 +117,16 @@ function App() {
 		<div>
 			<GlobalStyles />
 			<ThemeProvider theme={original}>
-				<SearchBar
-					getInput={getInput}
-					onFormSubmit={handleSubmit}
-				/>
+				<SearchBar onFormSubmit={handleSubmit} />
 				<SelectedVideo
 					selectedVideo={selectedVideo}
 					loading={loading}
 					percent={percent}
 				/>
-				<VideoList videoList={videoList} />
+				<VideoList
+					videoList={videoList}
+					onVideoSelect={onVideoSelect}
+				/>
 			</ThemeProvider>
 		</div>
 	)

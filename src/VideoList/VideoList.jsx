@@ -1,32 +1,28 @@
 import React from 'react'
-import { Window, WindowContent, ScrollView, MenuList } from 'react95'
+import { MenuList, ScrollView } from 'react95'
+import VideoItem from '../VideoItem/VideoItem'
 
-export default function VideoList({ videoList }) {
-	console.log('video', videoList)
+export default function VideoList({ videoList, onVideoSelect }) {
+	if (!videoList) return <></>
+	const listOfVideos = videoList.map((video, id) => (
+		<VideoItem
+			key={id}
+			onVideoSelect={onVideoSelect}
+			video={video}
+		/>
+	))
 	return (
 		<>
-			<Window>
-				<WindowContent>
-					{/* <ScrollView style={{ width: '300px', height: '200px' }}> */}
-					<MenuList>
-						{videoList.map((video) => {
-							return (
-								<>
-									<iframe
-										className="Selected-Video__src"
-										title="Video Player"
-										src={`https://www.youtube.com/embed/${video.id.videoId}`}></iframe>
-									<p>{video.snippet.title}</p>
-								</>
-							)
-						})}
-						<p>
-							Edit <code>src/App.js</code> and save to reload.
-						</p>
-					</MenuList>
+			{/* <ScrollView style={{ width: '300px', height: '200px' }}> */}
+			<MenuList>
+				<ScrollView>
+					{listOfVideos}
+					<p>
+						Edit <code>src/App.js</code> and save to reload.
+					</p>
 					{/* 	</ScrollView> */}
-				</WindowContent>
-			</Window>
+				</ScrollView>
+			</MenuList>
 		</>
 	)
 }
