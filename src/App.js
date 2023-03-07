@@ -118,15 +118,17 @@ function App() {
 			<GlobalStyles />
 			<ThemeProvider theme={original}>
 				<SearchBar onFormSubmit={handleSubmit} />
-				<SelectedVideo
-					selectedVideo={selectedVideo}
-					loading={loading}
-					percent={percent}
-				/>
-				<VideoList
-					videoList={videoList}
-					onVideoSelect={onVideoSelect}
-				/>
+				<div className="video-container">
+					<SelectedVideo
+						selectedVideo={selectedVideo}
+						loading={loading}
+						percent={percent}
+					/>
+					<VideoList
+						videoList={videoList}
+						onVideoSelect={onVideoSelect}
+					/>
+				</div>
 			</ThemeProvider>
 		</div>
 	)
