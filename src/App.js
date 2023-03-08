@@ -7,6 +7,9 @@ import VideoList from './VideoList/VideoList'
 import youtube from './assets/youtube'
 
 import {
+	AppBar,
+	Button,
+	Toolbar,
 	Window,
 	WindowContent,
 	ScrollView,
@@ -128,6 +131,14 @@ function App() {
 						videoList={videoList}
 						onVideoSelect={onVideoSelect}
 					/>
+					<footer className="app-bar">
+						<Button
+							onClick={(e) => {
+								console.log(e.target.value)
+							}}
+							style={{ fontWeight: 'bold' }}
+						/>
+					</footer>
 				</div>
 			</ThemeProvider>
 		</div>

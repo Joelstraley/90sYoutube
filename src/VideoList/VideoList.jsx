@@ -1,5 +1,5 @@
 import React from 'react'
-import { MenuList, ScrollView } from 'react95'
+import { MenuList, ScrollView, Window, WindowContent } from 'react95'
 import VideoItem from '../VideoItem/VideoItem'
 
 export default function VideoList({ videoList, onVideoSelect }) {
@@ -14,15 +14,15 @@ export default function VideoList({ videoList, onVideoSelect }) {
 	return (
 		<>
 			{/* <ScrollView style={{ width: '300px', height: '200px' }}> */}
-			<MenuList>
+			<Window>
 				<ScrollView>
 					{listOfVideos}
 					<p>
-						Edit <code>src/App.js</code> and save to reload.
+						<code>joel straley</code>
 					</p>
 					{/* 	</ScrollView> */}
 				</ScrollView>
-			</MenuList>
+			</Window>
 		</>
 	)
 }

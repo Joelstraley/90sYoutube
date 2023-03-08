@@ -30,25 +30,31 @@ export default function SelectedVideo({ selectedVideo, loading, percent }) {
 				<>
 					<Window
 						resizable
-						className="window">
-						<WindowHeader className="window-title">
+						className="selected-video">
+						<WindowHeader>
 							<span>{selectedVideo.snippet.title}</span>
 						</WindowHeader>
 						<WindowContent style={{ padding: '1rem' }}>
-							<Frame style={{ borderRadius: '10px' }}>
-								{/* 		<MediaPlayer
+							{/* <Frame style={{ borderRadius: '10px' }}> */}
+							{/* 		<MediaPlayer
 									className="player"
 									playlist={playlist}
 									showVideo
 									fullscreenEnabled
 								/> */}
-								<iframe
-									className="Selected-Video__src"
-									title="Video Player"
-									src={videoSrc}></iframe>
+							<iframe
+								className="selected-video__src"
+								title="Video Player"
+								src={videoSrc}></iframe>
+							{/* </Frame> */}
+							<Frame
+								variant="well"
+								className="footer">
+								<p className="selected-video__title">
+									{selectedVideo.snippet.channelTitle}
+								</p>
+								<p>{selectedVideo.snippet.description}</p>
 							</Frame>
-							<p>{selectedVideo.snippet.channelTitle}</p>
-							<p>{selectedVideo.snippet.description}</p>
 						</WindowContent>
 					</Window>
 				</>
