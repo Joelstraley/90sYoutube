@@ -1,8 +1,14 @@
 .selected-video {
     margin-right: 10px;
-    display: inline-table;
+   /*  display: inline-table; */
 }
 
 .selected-video__title {
-margin: .5rem 0 .5rem .25rem;
+    word-break: break-word;
+}
+
+.selected-video__channel-title {
+    display: flex;
+    margin: .5rem 0 .5rem .25rem;
+    justify-content: space-between;
 }

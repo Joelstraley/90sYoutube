@@ -10,9 +10,10 @@
 
 .search-bar__title {
     text-align: center;
+    color: white;
 }
 
 .search-bar__btns {
     margin: .25em;
-
+    font-size: large;
 }

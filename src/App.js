@@ -4,6 +4,7 @@ import './App.css'
 import SearchBar from './Search/SearchBar'
 import SelectedVideo from './SelectedVideo/SelectedVideo'
 import VideoList from './VideoList/VideoList'
+import Loading from './Loading/Loading'
 import youtube from './assets/youtube'
 
 import {
@@ -59,16 +60,16 @@ function App() {
 	const [selectedVideo, setSelectedVideo] = useState(null)
 	/* const [searchTerm, setSearchTerm] = useState('search') */
 
-	const [loading, setLoading] = useState(false)
+	const [loading, setLoading] = useState(true)
 	const [percent, setPercent] = useState(0)
 
-	/* useEffect(() => {
+	useEffect(() => {
 		if (loading) {
 			const timer = setInterval(() => {
 				setPercent((previousPercent) => {
 					if (previousPercent === 100) {
 						setLoading(false)
-						return
+						/* return */
 					}
 
 					const diff = Math.random() * 10
@@ -78,10 +79,10 @@ function App() {
 
 			return () => {
 				clearInterval(timer)
-				/* setLoading(false)
+				setLoading(false)
 			}
 		}
-	}, [selectedVideo]) */
+	}, [loading])
 
 	/* 	const getInput = (input) => {
 		setSearchTerm(input)
@@ -92,7 +93,7 @@ function App() {
 
 	const handleSubmit = async (searchTerm) => {
 		try {
-			/* setLoading(true) */
+			setLoading(true)
 			const res = await youtube.get('search', {
 				params: {
 					part: 'snippet',
@@ -102,7 +103,6 @@ function App() {
 				},
 			})
 			console.log('res', res)
-			/* 	setLoading(false) */
 			setSelectedVideo(res.data.items[0])
 			res.data.items.shift()
 			setVideoList(res.data.items)
@@ -121,25 +121,33 @@ function App() {
 			<GlobalStyles />
 			<ThemeProvider theme={original}>
 				<SearchBar onFormSubmit={handleSubmit} />
-				<div className="video-container">
-					<SelectedVideo
-						selectedVideo={selectedVideo}
-						loading={loading}
-						percent={percent}
-					/>
-					<VideoList
-						videoList={videoList}
-						onVideoSelect={onVideoSelect}
-					/>
-					<footer className="app-bar">
-						<Button
-							onClick={(e) => {
-								console.log(e.target.value)
-							}}
-							style={{ fontWeight: 'bold' }}
-						/>
-					</footer>
-				</div>
+				{loading ? (
+					<Loading percent={percent} />
+				) : (
+					<>
+						<div className="video-container">
+							<SelectedVideo
+								selectedVideo={selectedVideo}
+								loading={loading}
+								percent={percent}
+							/>
+							<VideoList
+								videoList={videoList}
+								onVideoSelect={onVideoSelect}
+							/>
+						</div>
+						<Window>
+							<footer>
+								<Button
+									onClick={(e) => {
+										console.log(e.target.value)
+									}}
+									style={{ fontWeight: 'bold' }}
+								/>
+							</footer>
+						</Window>
+					</>
+				)}
 			</ThemeProvider>
 		</div>
 	)
