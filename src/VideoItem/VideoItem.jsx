@@ -14,7 +14,7 @@ function VideoItem({ video, onVideoSelect, value }) {
 	const videoDate = video.snippet.publishedAt
 
 	return (
-		<>
+		<div>
 			<Tooltip
 				text={`Launch "${video.snippet.title}" in Media Player`}
 				/* enterDelay={100}
@@ -36,7 +36,7 @@ function VideoItem({ video, onVideoSelect, value }) {
 				{/* 	</ScrollView> */}
 			</Tooltip>
 			<Separator />
-		</>
+		</div>
 	)
 }
 

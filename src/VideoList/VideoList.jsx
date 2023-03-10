@@ -13,7 +13,7 @@ import VideoItem from '../VideoItem/VideoItem'
 
 export default function VideoList({ videoList, onVideoSelect }) {
 	const [state, setState] = useState({
-		activeTab: 0,
+		activeTab: 1,
 	})
 
 	const handleChange = (value) => setState({ activeTab: value })
@@ -27,40 +27,68 @@ export default function VideoList({ videoList, onVideoSelect }) {
 	if (!videoList) return <></>
 
 	const listOfVideos = () => {
-		return (
-			<>
-				<Tabs
-					rows={1}
-					value={activeTab}
-					onChange={handleChange}>
-					<Tab value={0}>video.snippet.title</Tab>
-				</Tabs>
-				{videoList.map((video, id, index) => (
-					<>
-						{activeTab === 0 && (
-							<TabBody style={{ height: 300 }}>
-								<VideoItem
-									key={id}
-									activeTab={activeTab}
-									value={index}
-									onVideoSelect={onVideoSelect}
-									video={video}
-								/>
-							</TabBody>
-						)}
-					</>
-				))}
-			</>
-		)
+		return <></>
+	}
+
+	const handleState = (title) => {
+		setState({ activeTab: title })
 	}
 
 	return (
 		<>
 			{/* <ScrollView style={{ width: '300px', height: '200px' }}> */}
-			<Window style={{ width: 350 }}>
+			<Window>
 				<WindowHeader>Related-Videos.exe</WindowHeader>
 				<WindowContent>
-					{listOfVideos()}
+					<Tabs
+						value={activeTab}
+						onChange={handleChange}>
+						{videoList.map(
+							(video, id, index) => (
+								console.log(videoList),
+								(
+									<>
+										<Tab value={index}>{video.snippet.title}</Tab>
+									</>
+								)
+							)
+						)}
+					</Tabs>
+					{videoList.map((video, id, index) => {
+						activeTab === index ? (
+							<>
+								<TabBody style={{ height: 300 }}>
+									<img
+										className="selected-video__src"
+										key={id}
+										title="Video Player"
+										style={{ marginRight: '20px' }}
+										alt="thumbnail"
+										src={video.snippet.thumbnails.medium.url}
+									/>
+									{/* <VideoItem
+										key={id}
+											activeTab={activeTab}
+										value={index}
+										onVideoSelect={onVideoSelect}
+										video={video}
+									/> */}
+								</TabBody>
+							</>
+						) : (
+							<>
+								<img
+									className="selected-video__src"
+									key={id}
+									title="Video Player"
+									style={{ marginRight: '20px' }}
+									alt="thumbnail"
+									src={video.snippet.thumbnails.medium.url}
+								/>
+							</>
+						)
+					})}
+					)
 					<p>
 						<code>joel straley</code>
 					</p>

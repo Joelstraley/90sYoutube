@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { ReactDOM } from 'react-dom'
 import logo from './logo.svg'
 import './App.css'
 import SearchBar from './Search/SearchBar'
