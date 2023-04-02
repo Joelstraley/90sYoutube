@@ -9,9 +9,9 @@ import {
 	ScrollView,
 } from 'react95'
 
-import { MediaPlayer } from 'win95-media-player/'
+//import { MediaPlayer } from 'win95-media-player/'
 
-console.log('MEDIA', MediaPlayer)
+//console.log('MEDIA', MediaPlayer)
 
 export default function SelectedVideo({ selectedVideo }) {
 	console.log('test', selectedVideo)
@@ -35,24 +35,26 @@ export default function SelectedVideo({ selectedVideo }) {
 					</span>
 				</WindowHeader>
 				<WindowContent style={{ padding: '1rem' }}>
-					<MediaPlayer
+					{/* 		<MediaPlayer
 						className="player"
 						playlist={playlist}
 						showVideo
 						fullscreenEnabled
-					/>
-					{/* <Frame style={{ borderRadius: '10px' }}> */}
-					{/* 		<MediaPlayer
+					/> */}
+					<Frame style={{ borderRadius: '10px' }}>
+						{' '}
+						*/}
+						{/* 		<MediaPlayer
 									className="player"
 									playlist={playlist}
 									showVideo
 									fullscreenEnabled
 								/> */}
-					<iframe
-						className="selected-video__src"
-						title="Video Player"
-						src={videoSrc}></iframe>
-					{/* </Frame> */}
+						<iframe
+							className="selected-video__src"
+							title="Video Player"
+							src={videoSrc}></iframe>
+					</Frame>
 					<p className="selected-video__channel-title">
 						{selectedVideo.snippet.channelTitle}
 						<span> {videoDate}</span>
