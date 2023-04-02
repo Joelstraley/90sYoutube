@@ -11,9 +11,10 @@ body {
   background-image: url('https://wallpapers.com/images/hd/windows-95-clouds-kfioe6hnh3x8zn4z.jpg');
   background-color: #168081;
 /*   background-color: #040080; */
-background-size:     cover;  
-
-    object-fit: cover;
+background-size: cover;  
+/* background-repeat: no-repeat; */
+/* background: linear-gradient(blue, pink); */
+    object-fit:fill;
 }
 
 code {
@@ -28,7 +29,7 @@ code {
 
 .video-container {
   display: flex;
-  max-width: 100vw;
+/*  // max-width: 100vw; */
   gap: .25em;
 }
 
