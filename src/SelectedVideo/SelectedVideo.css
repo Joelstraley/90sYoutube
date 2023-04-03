@@ -12,3 +12,8 @@
     margin: .5rem 0 .5rem .25rem;
     justify-content: space-between;
 }
+
+.selected-video__channel-desc {
+    padding: 1em;
+    background-color: white;
+}

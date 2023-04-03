@@ -8,8 +8,7 @@ import {
 	WindowContent,
 	ScrollView,
 } from 'react95'
-
-//import { MediaPlayer } from 'win95-media-player/'
+import { MediaPlayer } from 'win95-media-player/'
 
 //console.log('MEDIA', MediaPlayer)
 
@@ -23,7 +22,7 @@ export default function SelectedVideo({ selectedVideo }) {
 	const playlist = [
 		{
 			url: 'https://archive.org/download/CC1301_windows_95/CC1301_windows_95_512kb.mp4',
-			title: selectedVideo.snippet.title,
+			title: 'Computer Chronicles - Windows 95',
 		},
 	]
 	return (
@@ -34,22 +33,13 @@ export default function SelectedVideo({ selectedVideo }) {
 						{selectedVideo.snippet.title}
 					</span>
 				</WindowHeader>
-				<WindowContent style={{ padding: '1rem' }}>
+				<WindowContent /* style={{ padding: '1rem' }} */>
 					{/* 		<MediaPlayer
 						className="player"
 						playlist={playlist}
 						showVideo
-						fullscreenEnabled
 					/> */}
 					<Frame style={{ borderRadius: '10px' }}>
-						{' '}
-						*/}
-						{/* 		<MediaPlayer
-									className="player"
-									playlist={playlist}
-									showVideo
-									fullscreenEnabled
-								/> */}
 						<iframe
 							className="selected-video__src"
 							title="Video Player"
@@ -63,7 +53,9 @@ export default function SelectedVideo({ selectedVideo }) {
 					<Frame
 						variant="well"
 						className="footer">
-						<p>{selectedVideo.snippet.description}</p>
+						<p className="selected-video__channel-desc">
+							{selectedVideo.snippet.description}
+						</p>
 					</Frame>
 				</WindowContent>
 			</Window>

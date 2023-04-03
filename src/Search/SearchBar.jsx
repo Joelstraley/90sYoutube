@@ -38,7 +38,7 @@ export default function SearchBar({ onFormSubmit }) {
 							/>
 						</form>
 						<img
-							class="search-bar__icon"
+							className="search-bar__icon"
 							src="https://win98icons.alexmeub.com/icons/png/search_web-0.png"
 							alt="Windows-Magnifying-Glass-Icon"
 						/>

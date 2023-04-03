@@ -115,7 +115,7 @@
 				 
 				var d = ''
 				+ '<br>'
-				+'<a class="btn  btn-primary" href="'+video_arr_final.video_url+'" download="youtube.mp3"> Download</a>'
+				+'<a className="btn  btn-primary" href="'+video_arr_final.video_url+'" download="youtube.mp3"> Download</a>'
 
 				+'<video  src="'+video_arr_final.video_url+'" controls autoplay controlsList="nodownload" oncontextmenu="return false;" height="350" width="100%">'
 				+'</video >'
