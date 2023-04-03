@@ -7,7 +7,6 @@ export default function SearchBar({ onFormSubmit }) {
 	const [searchTerm, setSearchTerm] = useState('')
 
 	const handleSubmit = (e) => {
-		console.log('E', e)
 		onFormSubmit(searchTerm)
 		e.preventDefault()
 		/* document.getElementById('search-input').reset() */

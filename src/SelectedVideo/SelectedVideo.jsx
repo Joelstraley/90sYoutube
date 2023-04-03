@@ -1,6 +1,8 @@
 import React from 'react'
 import './SelectedVideo.css'
+import { convertDate } from '../assets/convertDate'
 import {
+	Button,
 	Frame,
 	ProgressBar,
 	Window,
@@ -10,14 +12,11 @@ import {
 } from 'react95'
 import { MediaPlayer } from 'win95-media-player/'
 
-//console.log('MEDIA', MediaPlayer)
-
 export default function SelectedVideo({ selectedVideo }) {
-	console.log('test', selectedVideo)
 	if (!selectedVideo) return <></>
 	const videoSrc = `https://www.youtube.com/embed/${selectedVideo.id.videoId}`
 
-	const videoDate = selectedVideo.snippet.publishedAt
+	const videoDate = convertDate(selectedVideo.snippet.publishedAt)
 
 	const playlist = [
 		{
@@ -40,10 +39,17 @@ export default function SelectedVideo({ selectedVideo }) {
 						showVideo
 					/> */}
 					<Frame style={{ borderRadius: '10px' }}>
-						<iframe
-							className="selected-video__src"
-							title="Video Player"
-							src={videoSrc}></iframe>
+						<div className="video-frame">
+							<iframe
+								className="selected-video__src"
+								title="Video Player"
+								src={videoSrc}></iframe>
+							<div className="video-frame__btns">
+								<Button primary>Primary</Button>
+								<Button primary>Primary</Button>
+								<Button primary>Primary</Button>
+							</div>
+						</div>
 					</Frame>
 					<p className="selected-video__channel-title">
 						{selectedVideo.snippet.channelTitle}

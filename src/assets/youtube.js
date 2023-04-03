@@ -8,5 +8,3 @@ export default axios.create({
 		key: process.env.REACT_APP_YOUTUBE_API_KEY,
 	},
 })
-
-console.log(process.env.REACT_APP_YOUTUBE_API_KEY)

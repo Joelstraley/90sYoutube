@@ -103,7 +103,7 @@ function App() {
 					q: searchTerm,
 				},
 			})
-			console.log('res', res)
+			/* console.log('res', res) */
 			setSelectedVideo(res.data.items[0])
 			res.data.items.shift()
 			setVideoList(res.data.items)
@@ -141,7 +141,7 @@ function App() {
 							<footer>
 								<Button
 									onClick={(e) => {
-										console.log(e.target.value)
+										/* console.log(e.target.value) */
 									}}
 									style={{ fontWeight: 'bold' }}
 								/>

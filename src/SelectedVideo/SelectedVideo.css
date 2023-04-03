@@ -17,3 +17,7 @@
     padding: 1em;
     background-color: white;
 }
+
+.selected-video__src {
+    border-radius: 10px;
+}

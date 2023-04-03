@@ -43,19 +43,14 @@ export default function VideoList({ videoList, onVideoSelect }) {
 					<Tabs
 						value={activeTab}
 						onChange={handleChange}>
-						{videoList.map(
-							(video, id, index) => (
-								console.log(videoList),
-								(
-									<>
-										<Tab value={index}>{video.snippet.title}</Tab>
-									</>
-								)
-							)
-						)}
+						{videoList.map((video, id, index) => (
+							<>
+								<Tab value={index}>{video.snippet.title}</Tab>
+							</>
+						))}
 					</Tabs>
 					{videoList.map((video, id, index) => {
-						activeTab === index ? (
+						return activeTab === index ? (
 							<>
 								<TabBody style={{ height: 300 }}>
 									<img
