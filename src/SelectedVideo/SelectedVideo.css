@@ -1,5 +1,5 @@
 .selected-video {
-    margin-right: 10px;
+    margin-right: 20px;
    /*  display: inline-table; */
 }
 
@@ -19,5 +19,13 @@
 }
 
 .selected-video__src {
-    border-radius: 10px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px 1px black;
+    cursor: pointer;
+}
+
+.video-frame {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }

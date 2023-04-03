@@ -49,13 +49,6 @@ const GlobalStyles = createGlobalStyle`
     font-family: 'ms_sans_serif';
   }
 `
-
-////Main video CARD
-///Search bar
-/// Side Video list - when clicked they become the Main Video
-///React Router for elements
-///React Query
-
 function App() {
 	const [videoList, setVideoList] = useState([])
 	const [selectedVideo, setSelectedVideo] = useState(null)
@@ -103,7 +96,7 @@ function App() {
 					q: searchTerm,
 				},
 			})
-			/* console.log('res', res) */
+			console.log('res', res)
 			setSelectedVideo(res.data.items[0])
 			res.data.items.shift()
 			setVideoList(res.data.items)

@@ -33,13 +33,13 @@ code {
   gap: .25em;
 }
 
-.selected-video {
+/* .selected-video {
   display: inline-table;
-}
+} */
 
-.selected-video__src {
+/* .selected-video__src {
   max-width: 10000px;
-}
+} */
 
 .app-bar {
   position: absolute; 

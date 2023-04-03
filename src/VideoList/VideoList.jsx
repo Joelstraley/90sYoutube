@@ -26,9 +26,13 @@ export default function VideoList({ videoList, onVideoSelect }) {
 
 	if (!videoList) return <></>
 
-	const listOfVideos = () => {
-		return <></>
-	}
+	const listOfVideos = videoList.map((video, id) => (
+		<VideoItem
+			key={id}
+			onVideoSelect={onVideoSelect}
+			video={video}
+		/>
+	))
 
 	const handleState = (title) => {
 		setState({ activeTab: title })
@@ -36,59 +40,12 @@ export default function VideoList({ videoList, onVideoSelect }) {
 
 	return (
 		<>
+			{/* <>
 			{/* <ScrollView style={{ width: '300px', height: '200px' }}> */}
+
 			<Window>
 				<WindowHeader>Related-Videos.exe</WindowHeader>
-				<WindowContent>
-					<Tabs
-						value={activeTab}
-						onChange={handleChange}>
-						{videoList.map((video, id, index) => (
-							<>
-								<Tab value={index}>{video.snippet.title}</Tab>
-							</>
-						))}
-					</Tabs>
-					{videoList.map((video, id, index) => {
-						return activeTab === index ? (
-							<>
-								<TabBody style={{ height: 300 }}>
-									<img
-										className="selected-video__src"
-										key={id}
-										title="Video Player"
-										style={{ marginRight: '20px' }}
-										alt="thumbnail"
-										src={video.snippet.thumbnails.medium.url}
-									/>
-									{/* <VideoItem
-										key={id}
-											activeTab={activeTab}
-										value={index}
-										onVideoSelect={onVideoSelect}
-										video={video}
-									/> */}
-								</TabBody>
-							</>
-						) : (
-							<>
-								<img
-									className="selected-video__src"
-									key={id}
-									title="Video Player"
-									style={{ marginRight: '20px' }}
-									alt="thumbnail"
-									src={video.snippet.thumbnails.medium.url}
-								/>
-							</>
-						)
-					})}
-					)
-					<p>
-						<code>joel straley</code>
-					</p>
-				</WindowContent>
-				{/* 	</ScrollView> */}
+				<ScrollView>{listOfVideos}</ScrollView>
 			</Window>
 		</>
 	)
