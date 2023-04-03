@@ -4,7 +4,19 @@
 }
 
 .selected-video__title {
-    word-break: break-word;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.selected-video__title--movie-icon {
+    width: 1.5em;
+    margin-right: 5px;
+    margin-bottom: 3px;
+}
+
+.selected-video__channel-title-container {
+    margin: 1em;
 }
 
 .selected-video__channel-title {
@@ -19,7 +31,7 @@
 }
 
 .selected-video__src {
-    border-radius: 5px;
+    border-radius: 1px;
     box-shadow: 1px 1px 1px 1px black;
     cursor: pointer;
 }
@@ -28,4 +40,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+.video-frame__btns {
+    
 }

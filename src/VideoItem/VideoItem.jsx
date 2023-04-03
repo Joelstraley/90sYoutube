@@ -17,8 +17,8 @@ function VideoItem({ video, onVideoSelect, value }) {
 		<>
 			<Tooltip
 				text={`Launch "${video.snippet.title}" in Media Player`}
-				/* enterDelay={100}
-					leaveDelay={500} */
+				enterDelay={100}
+				leaveDelay={300}
 				className="video-item__tooltip">
 				<ScrollView id="cutout">
 					<img
