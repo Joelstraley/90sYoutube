@@ -43,5 +43,7 @@
 }
 
 .video-frame__btns {
-    
+    display:flex;
+    justify-content: center;
+    gap: 7px;
 }
