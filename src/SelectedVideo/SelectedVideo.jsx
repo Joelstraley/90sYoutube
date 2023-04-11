@@ -1,5 +1,6 @@
 import React from 'react'
 import './SelectedVideo.css'
+import YouTube from 'react-youtube'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
 	faPlay,
@@ -22,23 +23,71 @@ import {
 	WindowContent,
 	ScrollView,
 } from 'react95'
-import { MediaPlayer } from 'win95-media-player/'
+/* import { MediaPlayer } from 'win95-media-player/' */
 
 export default function SelectedVideo({ selectedVideo }) {
+	console.log('SELECTED', selectedVideo)
 	if (!selectedVideo) return <></>
-	const videoSrc = `https://www.youtube.com/embed/${selectedVideo.id.videoId}`
+	const videoSrc = `https://www.youtube.com/embed/${selectedVideo.id.videoId}?autoplay=1&controls=0&modestbranding=1&enablejsapi=1`
 
 	const videoDate = convertDate(selectedVideo.snippet.publishedAt)
+	/* 
+	let player
+	function onYouTubeIframeAPIReady() {
+		player = new YouTube.PlayerState('player', {
+			height: 500,
+			width: 900,
+			videoId: `${selectedVideo.id.videoId}`,
+			playerVars: {
+				autoplay: 1,
+				controls: 0,
+				playsinline: 1,
+			},
+			events: {
+				onReady: onPlayerReady,
+				onStateChange: onPlayerStateChange,
+			},
+		})
+	}
 
-	const playlist = [
-		{
-			url: 'https://archive.org/download/CC1301_windows_95/CC1301_windows_95_512kb.mp4',
-			title: 'Computer Chronicles - Windows 95',
-		},
-	]
+	function onPlayerReady(event) {
+		var embedCode = event.target.getVideoEmbedCode()
+		event.target.playVideo()
+		if (document.getElementById('embed-code')) {
+			document.getElementById('embed-code').innerHTML = embedCode
+		}
+	}
+
+	var done = false
+	function onPlayerStateChange(event) {
+		if (event.data === YouTube.PlayerState.PLAYING && !done) {
+			setTimeout(handleStop, 6000)
+			done = true
+		}
+	} */
+	/* function stopVideo() {
+		player.stopVideo()
+	} */
+
+	const handlePause = (e) => {
+		console.log(e.target.onplay)
+		player.pauseVideo()
+	}
+
+	const handlePlay = (e) => {
+		console.log(e)
+		player.playVideo()
+	}
+
+	const handleStop = (e) => {
+		console.log(e)
+		player.stopVideo()
+	}
+
 	return (
 		<>
 			<Window className="selected-video">
+				{console.log('vid', videoSrc)}
 				<WindowHeader>
 					<span className="selected-video__title">
 						<img
@@ -58,17 +107,24 @@ export default function SelectedVideo({ selectedVideo }) {
 					<Frame>
 						<div className="video-frame">
 							<iframe
+								id="player"
 								className="selected-video__src"
 								title="Video Player"
 								src={videoSrc}></iframe>
 							<div className="video-frame__btns">
-								<Button default>
+								<Button
+									onClick={handlePlay}
+									default>
 									<FontAwesomeIcon icon={faPlay} />
 								</Button>
-								<Button default>
+								<Button
+									onClick={handleStop}
+									default>
 									<FontAwesomeIcon icon={faSquare} />
 								</Button>
-								<Button default>
+								<Button
+									onClick={handlePause}
+									default>
 									<FontAwesomeIcon icon={faPause} />
 								</Button>
 								<Button default>
