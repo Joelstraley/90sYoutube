@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import './SelectedVideo.css'
 import YouTube from 'react-youtube'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -26,11 +26,23 @@ import {
 /* import { MediaPlayer } from 'win95-media-player/' */
 
 export default function SelectedVideo({ selectedVideo }) {
+	const videoIframe = useRef(null)
 	console.log('SELECTED', selectedVideo)
 	if (!selectedVideo) return <></>
 	const videoSrc = `https://www.youtube.com/embed/${selectedVideo.id.videoId}?autoplay=1&controls=0&modestbranding=1&enablejsapi=1`
 
 	const videoDate = convertDate(selectedVideo.snippet.publishedAt)
+
+	const opts = {
+		height: '390',
+		width: '640',
+		playerVars: {
+			// https://developers.google.com/youtube/player_parameters
+			autoplay: 1,
+		},
+	}
+
+	let player
 	/* 
 	let player
 	function onYouTubeIframeAPIReady() {
@@ -69,14 +81,27 @@ export default function SelectedVideo({ selectedVideo }) {
 		player.stopVideo()
 	} */
 
+	const onPlayerReady = (event) => {
+		var embedCode = event.target.getVideoEmbedCode()
+		event.target.playVideo()
+		if (document.getElementById('embed-code')) {
+			document.getElementById('embed-code').innerHTML = embedCode
+		}
+		// access to player in all event handlers via event.target
+		//event.target.pauseVideo()
+	}
+
 	const handlePause = (e) => {
-		console.log(e.target.onplay)
+		console.log(e.target)
 		player.pauseVideo()
 	}
 
 	const handlePlay = (e) => {
-		console.log(e)
+		console.log(e.target)
 		player.playVideo()
+		/* 	console.log(videoIframe.current)
+		videoIframe.current.playVideo() */
+		//	player.playVideo()
 	}
 
 	const handleStop = (e) => {
@@ -106,12 +131,28 @@ export default function SelectedVideo({ selectedVideo }) {
 					/> */}
 					<Frame>
 						<div className="video-frame">
+							<YouTube
+								videoSrc={videoSrc}
+								opts={opts}
+								onReady={onPlayerReady}
+								onPlay={handlePlay}
+								onPause={handlePause}
+							/>
+
 							<iframe
-								id="player"
-								className="selected-video__src"
-								title="Video Player"
-								src={videoSrc}></iframe>
+								id="ytplayer"
+								type="text/html"
+								width="720"
+								height="405"
+								src="https://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1&controls=0&enablejsapi=1&modestbranding=1"
+								frameBorder="0"></iframe>
 							<div className="video-frame__btns">
+								<iframe
+									id="player"
+									className="selected-video__src"
+									title="Video Player"
+									src={videoSrc}
+									ref={videoIframe}></iframe>
 								<Button
 									onClick={handlePlay}
 									default>

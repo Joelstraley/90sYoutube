@@ -6,3 +6,20 @@
     margin-top: 10em;
     white-space:pre-wrap;
 }
+
+.recommended-video__src {
+  /*   opacity: 0;
+    -moz-transition: opacity 1.5s;
+    -webkit-transition: opacity 1.5s;
+    -o-transition: opacity 1.5s;
+    transition: opacity 1.5s; */
+}
+
+.recommended-video__src {
+    animation: load 10s;
+}
+
+@keyframes load {
+    from { clip-path: inset(0rem 0rem 15rem 0rem); filter: blur(10px)}
+    to   { clip-path: inset(0rem 0rem 0rem 0rem); filter: blur(0)}
+  }

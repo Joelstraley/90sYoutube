@@ -21,8 +21,9 @@ function VideoItem({ video, onVideoSelect, value }) {
 				leaveDelay={300}
 				className="video-item__tooltip">
 				<ScrollView id="cutout">
+					<div className="recommended-video__src--loading"></div>
 					<img
-						className="selected-video__src"
+						className={`recommended-video__src`}
 						title="Video Player"
 						style={{ marginRight: '20px' }}
 						alt="thumbnail"
