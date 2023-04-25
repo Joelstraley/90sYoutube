@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import './SelectedVideo.css'
 import YouTube from 'react-youtube'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -23,96 +23,87 @@ import {
 	WindowContent,
 	ScrollView,
 } from 'react95'
+import youtube from '../assets/youtube'
 /* import { MediaPlayer } from 'win95-media-player/' */
 
 export default function SelectedVideo({ selectedVideo }) {
-	const videoIframe = useRef(null)
-	console.log('SELECTED', selectedVideo)
+	const videoRef = useRef(null)
+	const videoSrc = `https://www.youtube.com/embed/${selectedVideo.id.videoId}`
+	let times = 0
+	let playY
+	/* 
+	const createPlayer = (videoSrc) => {
+		new window.YT.Player('player', {
+			height: '360',
+			width: '640',
+			videoId: videoSrc,
+		})
+	} */
+	/* 
+	useEffect(() => {
+		// Load the YouTube Iframe API script
+		const scriptTag = document.createElement('script')
+		scriptTag.src = 'https://www.youtube.com/iframe_api'
+		document.body.appendChild(scriptTag)
+
+		// Add a global function for creating the player
+		window.onYouTubeIframeAPIReady = () => createPlayer(videoSrc)
+	}, [])
+
+	useEffect(() => {
+		// Call the createPlayer function when the video ID changes
+		if (videoSrc !== '') {
+			createPlayer(videoSrc)
+		}
+	}, [videoSrc]) */
+
 	if (!selectedVideo) return <></>
-	const videoSrc = `https://www.youtube.com/embed/${selectedVideo.id.videoId}?autoplay=1&controls=0&modestbranding=1&enablejsapi=1`
 
 	const videoDate = convertDate(selectedVideo.snippet.publishedAt)
 
-	const opts = {
+	/* const opts = {
 		height: '390',
 		width: '640',
 		playerVars: {
 			// https://developers.google.com/youtube/player_parameters
 			autoplay: 1,
 		},
-	}
+	} */
 
-	let player
-	/* 
-	let player
-	function onYouTubeIframeAPIReady() {
-		player = new YouTube.PlayerState('player', {
-			height: 500,
-			width: 900,
-			videoId: `${selectedVideo.id.videoId}`,
-			playerVars: {
-				autoplay: 1,
-				controls: 0,
-				playsinline: 1,
-			},
-			events: {
-				onReady: onPlayerReady,
-				onStateChange: onPlayerStateChange,
-			},
-		})
-	}
-
-	function onPlayerReady(event) {
+	/* function onPlayerReady(event) {
 		var embedCode = event.target.getVideoEmbedCode()
 		event.target.playVideo()
 		if (document.getElementById('embed-code')) {
 			document.getElementById('embed-code').innerHTML = embedCode
 		}
 	}
+ */
 
-	var done = false
-	function onPlayerStateChange(event) {
-		if (event.data === YouTube.PlayerState.PLAYING && !done) {
-			setTimeout(handleStop, 6000)
-			done = true
-		}
-	} */
-	/* function stopVideo() {
-		player.stopVideo()
+	/* 	const handlePause = () => {
+		videoRef.current.contentWindow.postMessage('pause', '*')
 	} */
 
-	const onPlayerReady = (event) => {
-		var embedCode = event.target.getVideoEmbedCode()
-		event.target.playVideo()
-		if (document.getElementById('embed-code')) {
-			document.getElementById('embed-code').innerHTML = embedCode
+	const handlePlay = () => {
+		console.log(videoRef)
+		/* videoRef.current.contentWindow.postMessage('play', '*') */
+		if (times === 0) {
+			playY = videoRef.current.src += '?autoplay=1&controls=0&modestbranding=1'
+			times = 1
 		}
-		// access to player in all event handlers via event.target
-		//event.target.pauseVideo()
 	}
 
-	const handlePause = (e) => {
-		console.log(e.target)
-		player.pauseVideo()
-	}
-
-	const handlePlay = (e) => {
-		console.log(e.target)
-		player.playVideo()
-		/* 	console.log(videoIframe.current)
-		videoIframe.current.playVideo() */
-		//	player.playVideo()
-	}
-
-	const handleStop = (e) => {
-		console.log(e)
-		player.stopVideo()
+	const handleStop = () => {
+		/* videoRef.current.contentWindow.postMessage('stop', '*') */
+		console.log(playY)
+		playY = playY.slice(0, -27)
+		console.log(playY)
+		videoRef.current.src = playY
+		times = 0
 	}
 
 	return (
 		<>
 			<Window className="selected-video">
-				{console.log('vid', videoSrc)}
 				<WindowHeader>
 					<span className="selected-video__title">
 						<img
@@ -129,59 +120,80 @@ export default function SelectedVideo({ selectedVideo }) {
 						playlist={playlist}
 						showVideo
 					/> */}
-					<Frame>
-						<div className="video-frame">
-							<YouTube
-								videoSrc={videoSrc}
-								opts={opts}
-								onReady={onPlayerReady}
-								onPlay={handlePlay}
-								onPause={handlePause}
-							/>
+					<Frame className="video-frame">
+						{/* 		<YouTube
+							videoSrc={videoSrc}
+							opts={opts}
+						/> */}
 
-							<iframe
+						{/* 	<iframe
 								id="ytplayer"
 								type="text/html"
 								width="720"
 								height="405"
 								src="https://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1&controls=0&enablejsapi=1&modestbranding=1"
-								frameBorder="0"></iframe>
-							<div className="video-frame__btns">
-								<iframe
-									id="player"
-									className="selected-video__src"
-									title="Video Player"
-									src={videoSrc}
-									ref={videoIframe}></iframe>
-								<Button
-									onClick={handlePlay}
-									default>
-									<FontAwesomeIcon icon={faPlay} />
-								</Button>
-								<Button
-									onClick={handleStop}
-									default>
-									<FontAwesomeIcon icon={faSquare} />
-								</Button>
-								<Button
-									onClick={handlePause}
-									default>
-									<FontAwesomeIcon icon={faPause} />
-								</Button>
-								<Button default>
-									<FontAwesomeIcon icon={faFastBackward} />
-								</Button>
-								<Button default>
-									<FontAwesomeIcon icon={faBackward} />
-								</Button>
-								<Button default>
-									<FontAwesomeIcon icon={faForward} />
-								</Button>
-								<Button default>
-									<FontAwesomeIcon icon={faFastForward} />
-								</Button>
-							</div>
+								frameBorder="0"></iframe> */}
+
+						{/* 	<YouTube
+							videoSrc={videoSrc}
+							opts={opts}
+							ref={videoRef}
+							onReady={(e) => onPlayerReady(e)}
+						/> */}
+						<iframe
+							id="player"
+							className="selected-video__src"
+							title="Video Player"
+							frameborder="0"
+							allow="autoplay; encrypted-media"
+							allowfullscreen
+							/* 	credentialless
+							origin-when-cross-origin */
+							src={videoSrc}
+							ref={videoRef}
+						/>
+
+						<div className="video-frame__btns">
+							{/* 	<iframe
+								id="player"
+								className="selected-video__src"
+								title="Video Player"
+								credentialless
+								origin-when-cross-origin
+								src={videoSrc}
+								ref={videoRef}></iframe> */}
+							<Button
+								onClick={handlePlay}
+								default>
+								<FontAwesomeIcon icon={faPlay} />
+							</Button>
+							<Button
+								onClick={handleStop}
+								default>
+								<FontAwesomeIcon icon={faSquare} />
+							</Button>
+							{/* 	<Button
+								onClick={handlePause}
+								default>
+								<FontAwesomeIcon icon={faPause} />
+							</Button> */}
+							<Button default>
+								<FontAwesomeIcon icon={faFastBackward} />
+							</Button>
+							<Button default>
+								<FontAwesomeIcon icon={faBackward} />
+							</Button>
+							<Button default>
+								<FontAwesomeIcon icon={faForward} />
+							</Button>
+							<Button default>
+								<FontAwesomeIcon icon={faFastForward} />
+							</Button>
 						</div>
+						{/* 		<YouTube
+							videoSrc={videoSrc}
+							opts={opts}
+							ref={videoRef}></YouTube> */}
 					</Frame>
 					<Separator />
 					<Frame

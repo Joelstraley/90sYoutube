@@ -33,11 +33,6 @@ export default function VideoList({ videoList, onVideoSelect }) {
 			video={video}
 		/>
 	))
-
-	const handleState = (title) => {
-		setState({ activeTab: title })
-	}
-
 	return (
 		<>
 			{/* <>

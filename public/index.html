@@ -2,13 +2,15 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="icon" href="https://win98icons.alexmeub.com/icons/png/monitor_windows.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta
       name="description"
-      content="Web site created using create-react-app"
+      HTTP-EQUIV="Access-Control-Allow-Origin"
+      content="Web site created using windows 95"
     />
+    <script async src="https://www.youtube.com/iframe_api"></script>
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <!--
       manifest.json provides metadata used when your web app is installed on a
@@ -25,43 +27,6 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>NetTube</title>
-    <script src="https://www.youtube.com/iframe_api">
-      let player;
-        function onYouTubeIframeAPIReady() {
-          console.log("IS THIS BEINGG RAN")
-          player = new YT.Player('player', {
-            height: '390',
-            width: '640',
-            videoId: 'M7lc1UVf-VE',
-            playerVars: {
-              'playsinline': 1
-            },
-            events: {
-              'onReady': onPlayerReady,
-              'onStateChange': onPlayerStateChange
-            }
-          });
-        }
-  
-        // 4. The API will call this function when the video player is ready.
-        function onPlayerReady(event) {
-          event.target.playVideo();
-        }
-  
-        // 5. The API calls this function when the player's state changes.
-        //    The function indicates that when playing a video (state=1),
-        //    the player should play for six seconds and then stop.
-        var done = false;
-        function onPlayerStateChange(event) {
-          if (event.data == YT.PlayerState.PLAYING && !done) {
-            setTimeout(stopVideo, 6000);
-            done = true;
-          }
-        }
-        function stopVideo() {
-          player.stopVideo();
-        }
-    </script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>

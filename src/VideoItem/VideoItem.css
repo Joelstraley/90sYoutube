@@ -1,22 +1,10 @@
-/* .Selected-Video__src {
-    border-radius: 5px;
-} */
-
 .video-item__tooltip {
     margin-top: 10em;
     white-space:pre-wrap;
 }
 
 .recommended-video__src {
-  /*   opacity: 0;
-    -moz-transition: opacity 1.5s;
-    -webkit-transition: opacity 1.5s;
-    -o-transition: opacity 1.5s;
-    transition: opacity 1.5s; */
-}
-
-.recommended-video__src {
-    animation: load 10s;
+    animation: load 15s;
 }
 
 @keyframes load {

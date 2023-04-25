@@ -37,15 +37,28 @@
 }
 
 .video-frame {
-    display: flex;
+  /*   display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: center; */
+    position: relative;
+    width: 640px;
+    height: 390px;
 }
 
 .video-frame__btns {
-    display:flex;
+   /*  display:flex;
     justify-content: center;
-    gap: 7px;
+    gap: 7px; */
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
 }
 
 .special-button {
