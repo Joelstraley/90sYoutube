@@ -14,10 +14,13 @@ import {
 import MovieIcon from '../assets/Movie Frame (3-2-1).png'
 import { convertDate } from '../assets/convertDate'
 import {
+	AppBar,
 	Button,
 	Frame,
 	ProgressBar,
 	Separator,
+	Toolbar,
+	Handle,
 	Window,
 	WindowHeader,
 	WindowContent,
@@ -140,18 +143,6 @@ export default function SelectedVideo({ selectedVideo }) {
 							ref={videoRef}
 							onReady={(e) => onPlayerReady(e)}
 						/> */}
-						<iframe
-							id="player"
-							className="selected-video__src"
-							title="Video Player"
-							frameborder="0"
-							allow="autoplay; encrypted-media"
-							allowfullscreen
-							/* 	credentialless
-							origin-when-cross-origin */
-							src={videoSrc}
-							ref={videoRef}
-						/>
 
 						<div className="video-frame__btns">
 							{/* 	<iframe
@@ -162,34 +153,53 @@ export default function SelectedVideo({ selectedVideo }) {
 								origin-when-cross-origin
 								src={videoSrc}
 								ref={videoRef}></iframe> */}
-							<Button
-								onClick={handlePlay}
-								default>
-								<FontAwesomeIcon icon={faPlay} />
-							</Button>
-							<Button
-								onClick={handleStop}
-								default>
-								<FontAwesomeIcon icon={faSquare} />
-							</Button>
-							{/* 	<Button
+
+							<iframe
+								id="player"
+								className="selected-video__src"
+								title="Video Player"
+								frameborder="0"
+								allow="autoplay; encrypted-media"
+								allowfullscreen
+								/* 	credentialless
+							origin-when-cross-origin */
+								src={videoSrc}
+								ref={videoRef}
+							/>
+							<AppBar>
+								<Toolbar>
+									<Handle size={35} />
+									<Button
+										onClick={handlePlay}
+										default>
+										<FontAwesomeIcon icon={faPlay} />
+									</Button>
+									<Button
+										onClick={handleStop}
+										default>
+										<FontAwesomeIcon icon={faSquare} />
+									</Button>
+									{/* 	<Button
 								onClick={handlePause}
 								default>
 								<FontAwesomeIcon icon={faPause} />
 							</Button> */}
-							<Button default>
-								<FontAwesomeIcon icon={faFastBackward} />
-							</Button>
-							<Button default>
-								<FontAwesomeIcon icon={faBackward} />
-							</Button>
-							<Button default>
-								<FontAwesomeIcon icon={faForward} />
-							</Button>
-							<Button default>
-								<FontAwesomeIcon icon={faFastForward} />
-							</Button>
+									<Button default>
+										<FontAwesomeIcon icon={faFastBackward} />
+									</Button>
+									<Button default>
+										<FontAwesomeIcon icon={faBackward} />
+									</Button>
+									<Button default>
+										<FontAwesomeIcon icon={faForward} />
+									</Button>
+									<Button default>
+										<FontAwesomeIcon icon={faFastForward} />
+									</Button>
+								</Toolbar>
+							</AppBar>
 						</div>
+
 						{/* 		<YouTube
 							videoSrc={videoSrc}
 							opts={opts}

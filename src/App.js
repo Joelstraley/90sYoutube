@@ -102,7 +102,7 @@ function App() {
 			setVideoList(res.data.items)
 		} catch (err) {
 			console.error(err)
-			setSelectedVideo('error')
+			setSelectedVideo('S7g4PfBrQf4')
 		}
 	}
 
