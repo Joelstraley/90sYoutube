@@ -112,7 +112,7 @@ function App() {
 	}, [])
 
 	return (
-		<div style={{ padding: '10px' }}>
+		<>
 			<GlobalStyles />
 			<ThemeProvider theme={original}>
 				<SearchBar onFormSubmit={handleSubmit} />
@@ -131,20 +131,10 @@ function App() {
 								onVideoSelect={onVideoSelect}
 							/>
 						</div>
-						<Window>
-							<footer>
-								<Button
-									onClick={(e) => {
-										/* console.log(e.target.value) */
-									}}
-									style={{ fontWeight: 'bold' }}
-								/>
-							</footer>
-						</Window>
 					</>
 				)}
 			</ThemeProvider>
-		</div>
+		</>
 	)
 }
 

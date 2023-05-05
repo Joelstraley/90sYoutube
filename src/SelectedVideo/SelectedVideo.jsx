@@ -198,6 +198,7 @@ export default function SelectedVideo({ selectedVideo }) {
 										<FontAwesomeIcon icon={faFastForward} />
 									</Button>
 									<Slider
+										className="buttons-slider"
 										size="90px"
 										defaultValue={3}
 									/>

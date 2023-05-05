@@ -82,6 +82,10 @@
     justify-content: center;
 }
 
+.buttons-slider {
+    margin: 0 1em;
+}
+
 /* .test2 {
     top: 108px;
 } */
