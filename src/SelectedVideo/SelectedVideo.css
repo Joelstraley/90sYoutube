@@ -1,6 +1,10 @@
 .selected-video {
     margin-right: 20px;
    /*  display: inline-table; */
+   display: flex;
+   flex-direction: column;
+   width: 99%;
+   margin-bottom: 1em;
 }
 
 .selected-video__title {
@@ -8,7 +12,9 @@
     align-items: center;
     white-space: nowrap;
     overflow: hidden;
+    text-overflow: ellipsis;
 }
+
 .selected-video__title--movie-icon {
     width: 1.5em;
     margin-right: 5px;
@@ -34,8 +40,7 @@
     border-radius: 1px;
     box-shadow: 1px 1px 1px 1px black;
     cursor: pointer;
-    width: 190em;
-    height: 20em;
+    height: 19em;
 }
 
 /* .video-frame__btns--container {
@@ -46,9 +51,10 @@
   /*   display: flex;
     flex-direction: column;
     justify-content: center; */
-    position: relative;
-    width: 640px;
-    height: 390px;
+/*     position: relative; */
+    width: 20em;
+    height: 20em;
+/*     margin: 0em 1em 4em -0.5em; */
 }
 
 .video-frame__btns {
@@ -68,7 +74,12 @@
 }
 
 .button-container {
-    margin-top: 108px;
+    margin-top: 16.20em;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
 }
 
 /* .test2 {

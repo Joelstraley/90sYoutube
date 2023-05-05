@@ -37,11 +37,12 @@ export default function VideoList({ videoList, onVideoSelect }) {
 		<>
 			{/* <>
 			{/* <ScrollView style={{ width: '300px', height: '200px' }}> */}
-
-			<Window>
-				<WindowHeader>Related-Videos.exe</WindowHeader>
-				<ScrollView>{listOfVideos}</ScrollView>
-			</Window>
+			<div className="selected-video">
+				<Window>
+					<WindowHeader>Related-Videos.exe</WindowHeader>
+					<ScrollView>{listOfVideos}</ScrollView>
+				</Window>
+			</div>
 		</>
 	)
 }

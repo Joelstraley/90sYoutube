@@ -18,6 +18,7 @@ import {
 	Button,
 	Frame,
 	ProgressBar,
+	Slider,
 	Separator,
 	Toolbar,
 	Handle,
@@ -168,11 +169,7 @@ export default function SelectedVideo({ selectedVideo }) {
 								ref={videoRef}
 							/>
 							<AppBar className="button-container">
-								<Toolbar className="test2">
-									<Handle
-										className="test3"
-										size={35}
-									/>
+								<Toolbar className="buttons">
 									<Button
 										onClick={handlePlay}
 										default>
@@ -200,6 +197,10 @@ export default function SelectedVideo({ selectedVideo }) {
 									<Button default>
 										<FontAwesomeIcon icon={faFastForward} />
 									</Button>
+									<Slider
+										size="90px"
+										defaultValue={3}
+									/>
 								</Toolbar>
 							</AppBar>
 						</div>
