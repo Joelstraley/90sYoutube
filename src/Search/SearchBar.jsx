@@ -12,6 +12,10 @@ export default function SearchBar({ onFormSubmit }) {
 		/* document.getElementById('search-input').reset() */
 	}
 
+	const openImage = () => {
+		window.open('./../assets/BillAndJay.jpg', '_blank', 'noopener,noreferrer')
+	}
+
 	return (
 		<div className="search-bar">
 			<div className="search-bar__header">
@@ -20,6 +24,7 @@ export default function SearchBar({ onFormSubmit }) {
 						className="search-bar__logo--image"
 						alt="Windows-Monitor-Logo"
 						src="https://win98icons.alexmeub.com/icons/png/monitor_windows.png"
+						onClick={() => openImage()}
 					/>
 					<h3 className="search-bar__title">NetTube</h3>
 				</div>

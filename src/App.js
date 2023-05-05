@@ -91,18 +91,19 @@ function App() {
 			const res = await youtube.get('search', {
 				params: {
 					part: 'snippet',
-					maxResults: 3,
+					maxResults: 10,
 					key: process.env.REACT_APP_YOUTUBE_API_KEY,
 					q: searchTerm,
 				},
 			})
-			console.log('res', res)
+			const data = await res
+			console.log('res', data)
 			setSelectedVideo(res.data.items[0])
 			res.data.items.shift()
 			setVideoList(res.data.items)
 		} catch (err) {
 			console.error(err)
-			setSelectedVideo('S7g4PfBrQf4')
+			setSelectedVideo(`S7g4PfBrQf4`)
 		}
 	}
 

@@ -34,6 +34,7 @@ export default function SelectedVideo({ selectedVideo }) {
 	const videoSrc = `https://www.youtube.com/embed/${selectedVideo.id.videoId}`
 	let times = 0
 	let playY
+	console.log(`${selectedVideo.id.videoId}`)
 	/* 
 	const createPlayer = (videoSrc) => {
 		new window.YT.Player('player', {
@@ -158,17 +159,20 @@ export default function SelectedVideo({ selectedVideo }) {
 								id="player"
 								className="selected-video__src"
 								title="Video Player"
-								frameborder="0"
+								frameBorder="0"
 								allow="autoplay; encrypted-media"
-								allowfullscreen
+								allowFullScreen
 								/* 	credentialless
 							origin-when-cross-origin */
 								src={videoSrc}
 								ref={videoRef}
 							/>
-							<AppBar>
-								<Toolbar>
-									<Handle size={35} />
+							<AppBar className="button-container">
+								<Toolbar className="test2">
+									<Handle
+										className="test3"
+										size={35}
+									/>
 									<Button
 										onClick={handlePlay}
 										default>
@@ -205,6 +209,7 @@ export default function SelectedVideo({ selectedVideo }) {
 							opts={opts}
 							ref={videoRef}></YouTube> */}
 					</Frame>
+
 					<Separator />
 					<Frame
 						variant="inside"

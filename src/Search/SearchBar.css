@@ -13,11 +13,9 @@
 
 .search-bar__logo {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    text-align: center;
-    padding-top: .05em;
-    margin: 0em 0em 4em 2em;
+   /*  justify-content: center; */
+   /*  padding-top: .05em; */
+    margin: 0em 0em 3em 0em;
    /*  margin: 0 1em 1em 1em;
     height: 2em;
     width: 2em; */
@@ -30,13 +28,13 @@
 }
 .search-bar__title {
     display: flex;
-    text-align: center;
     color: white;
     align-items: center;
     padding: .5em;
     font-weight: 800;
-    font-size: 22px;
+    font-size: 16px;
     text-shadow: 1px 1px 0px #ff0000;
+    margin: 0 0.25em 0 -.1em;
 }
 
 .search-bar__icon {
@@ -52,29 +50,34 @@
 
 .search-bar__input-container {
     display: flex;
-   flex-direction: column;
-   align-items: center;
+    flex-direction: column;
+    margin: 0em -1em 0 0em;
 }
 
 .search-bar__input {
-     display: flex;
+    display: flex;
+    margin-top: 1em;
 }
 
 .search-bar__btns-container {
     display: flex;
     justify-content: center;
+    margin: 0.5em -5em 1em -8em;
 }
 
 .search-bar__btns {
-    margin: .25em;
-    font-size: large;
+   margin-right: .2em;
+    font-size: .2em;
 }
+
 
 .search-bar__avatar-img {
     border: 1px darkblue solid;
     background-color: white;
     padding: .3em;
     border-radius: 100%;
-    max-width: 60%;
+    width: 45%;
+    max-width: 100%;
     height: auto;
+    margin: 0 -2em 0em 2.12em;
 }
