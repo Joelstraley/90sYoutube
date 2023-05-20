@@ -4,10 +4,10 @@
 }
 
 .recommended-video__src {
-    animation: load 15s;
+    animation: load 100s;
 }
 
 @keyframes load {
-    from { clip-path: inset(0rem 0rem 15rem 0rem); filter: blur(10px)}
+    from { clip-path: inset(0rem 0rem 15rem 0rem); filter: blur(5px)}
     to   { clip-path: inset(0rem 0rem 0rem 0rem); filter: blur(0)}
   }

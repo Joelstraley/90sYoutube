@@ -1,0 +1,9 @@
+.related-videos {
+    margin-right: 1em;
+    /*  display: inline-table; */
+    display: flex;
+    flex-direction: column;
+    /* width: 99%; */
+    margin-bottom: 1em;
+    align-items: center;
+}

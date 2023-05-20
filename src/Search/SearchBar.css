@@ -7,8 +7,7 @@
 
 .search-bar__header {
     display: flex;
-    justify-content: space-between;
-    flex-direction: row;
+    justify-content: space-evenly;
 }
 
 .search-bar__logo {
@@ -68,6 +67,12 @@
 .search-bar__btns {
    margin-right: .2em;
     font-size: .2em;
+}
+
+
+.search-bar__avatar {
+    align-items: flex-start;
+    padding-top: 1em;
 }
 
 

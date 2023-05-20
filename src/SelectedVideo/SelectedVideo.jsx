@@ -10,8 +10,13 @@ import {
 	faFastBackward,
 	faForward,
 	faFastForward,
+	faDash,
+	faXmark,
 } from '@fortawesome/free-solid-svg-icons'
 import MovieIcon from '../assets/Movie Frame (3-2-1).png'
+import Volume from '../assets/Volume.png'
+import MuteVolume from '../assets/Mute volume.png'
+
 import { convertDate } from '../assets/convertDate'
 import {
 	AppBar,
@@ -110,14 +115,25 @@ export default function SelectedVideo({ selectedVideo }) {
 		<>
 			<Window className="selected-video">
 				<WindowHeader>
-					<span className="selected-video__title">
-						<img
-							src={MovieIcon}
-							alt="Windows-90s-Movie-Icon"
-							className="selected-video__title--movie-icon"
-						/>
-						{selectedVideo.snippet.title}
-					</span>
+					<div className="selected-video__title">
+						<div className="selected-video__title--left">
+							<img
+								src={MovieIcon}
+								alt="Windows-90s-Movie-Icon"
+								className="selected-video__title--movie-icon"
+							/>
+							{selectedVideo.snippet.title}
+						</div>
+						<div className="selected-video__title--right">
+							<Button className="selected-video__title--button">
+								{/* <FontAwesomeIcon icon={faDash}  /> */}
+								__
+							</Button>
+							<Button className="selected-video__title--button">
+								<FontAwesomeIcon icon={faXmark} />
+							</Button>
+						</div>
+					</div>
 				</WindowHeader>
 				<WindowContent /* style={{ padding: '1rem' }} */>
 					{/* 		<MediaPlayer
@@ -197,6 +213,11 @@ export default function SelectedVideo({ selectedVideo }) {
 									<Button default>
 										<FontAwesomeIcon icon={faFastForward} />
 									</Button>
+									<img
+										className="buttons-slider__volume-img"
+										src={Volume}
+										alt="volume"
+									/>
 									<Slider
 										className="buttons-slider"
 										size="90px"

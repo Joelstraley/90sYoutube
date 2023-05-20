@@ -10,6 +10,7 @@ import {
 	WindowHeader,
 } from 'react95'
 import VideoItem from '../VideoItem/VideoItem'
+import '../VideoList/VideoList.css'
 
 export default function VideoList({ videoList, onVideoSelect }) {
 	const [state, setState] = useState({
@@ -37,7 +38,7 @@ export default function VideoList({ videoList, onVideoSelect }) {
 		<>
 			{/* <>
 			{/* <ScrollView style={{ width: '300px', height: '200px' }}> */}
-			<div className="selected-video">
+			<div className="related-videos">
 				<Window>
 					<WindowHeader>Related-Videos.exe</WindowHeader>
 					<ScrollView>{listOfVideos}</ScrollView>
