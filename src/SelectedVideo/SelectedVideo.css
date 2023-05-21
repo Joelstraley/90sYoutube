@@ -1,7 +1,8 @@
 
 .selected-video--frame-container {
     display: flex;
-    margin: 0.25em 2em;
+   /*  margin: 0.25em 2em; */
+    margin: -1em 5em 0.25em 1em;
 }
 
 .selected-video {
@@ -20,7 +21,7 @@
 .selected-video__title {
     display: flex;
 /*     align-items: center; */
-    white-space: nowrap;
+    white-space: pre-line;
     overflow: hidden;
     text-overflow: ellipsis;
     justify-content: space-between;
@@ -37,7 +38,7 @@
 .selected-video__title--movie-icon {
     width: 1.5em;
     margin-right: 5px;
-    margin-bottom: 1em;
+    margin-bottom: 3em;
 }
 
 .selected-video__title--button {
@@ -49,13 +50,17 @@
 }
 
 .selected-video__channel-title-container {
-    margin: 1em;
+    margin: 0.25em 0 1em 1em;
     width: 80%;
+}
+
+.selected-video__channel-title-label {
+    margin-top: .25em;
 }
 
 .selected-video__channel-title {
     display: flex;
-    margin: .5rem 0 .5rem .25rem;
+    margin: .2em;
     justify-content: space-between;
 }
 
@@ -65,6 +70,7 @@
 }
 
 .selected-video__channel-desc-container{
+    display: flex;
     margin-bottom: -1em;
 }
 

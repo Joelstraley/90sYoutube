@@ -66,7 +66,7 @@ function Comments() {
 						variant="flat"
 						className="comments-username"
 						label="MyCousinVinny">
-						<p className="comments-text">𝐝𝐨𝐧’𝐭 𝐮𝐧𝐟𝐨𝐥𝐥𝐨𝐰 𝐦𝐞 ☂˚｡ ლ(ಥ益ಥლ</p>
+						<p className="comments-text">𝐝𝐨𝐧’𝐭 𝐮𝐧𝐟𝐨𝐥𝐥𝐨𝐰 𝐦𝐞 ლ(ಥ益ಥლ</p>
 					</GroupBox>
 				</ScrollView>
 			</Frame>

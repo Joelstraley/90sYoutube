@@ -239,9 +239,7 @@ export default function SelectedVideo({ selectedVideo }) {
 					</div>
 
 					<Separator />
-					{/* 	<div className="selected-video__channel-details">
-						<p>Artist:</p> */}
-					<p>
+					<p className="selected-video__channel-title-label">
 						<span style={{ 'text-decoration': 'underline' }}>A</span>rtist:
 						<Frame
 							variant="well"
