@@ -1,0 +1,16 @@
+.comments-container {
+    width: 100%;
+}
+
+.comments-header{
+    margin-top:5px;
+    text-decoration: underline;
+}
+
+.comments-username {
+    color: blue;
+}
+
+.comments-text {
+    color: black;
+}

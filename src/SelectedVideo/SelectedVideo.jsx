@@ -13,6 +13,7 @@ import {
 	faDash,
 	faXmark,
 } from '@fortawesome/free-solid-svg-icons'
+import Comments from '../Comments/Comments'
 import MovieIcon from '../assets/Movie Frame (3-2-1).png'
 import Volume from '../assets/Volume.png'
 import MuteVolume from '../assets/Mute volume.png'
@@ -26,6 +27,7 @@ import {
 	Separator,
 	Toolbar,
 	Handle,
+	GroupBox,
 	Window,
 	WindowHeader,
 	WindowContent,
@@ -249,14 +251,14 @@ export default function SelectedVideo({ selectedVideo }) {
 							</span>
 						</Frame>
 					</p>
-					<Separator />
-					<p>
+
+					<p className="selected-video__channel-desc-container">
 						<span style={{ 'text-decoration': 'underline' }}>D</span>escription:
 						{/* 	<Frame
 							variant="well"
 							/* className="footer" */}
 						<ScrollView
-							style={{ width: '400px', height: '100px' }}
+							style={{ width: '400px', height: '50px' }}
 							className="selected-video__channel-title-container">
 							<p className="selected-video__channel-desc">
 								{selectedVideo.snippet.description}
@@ -264,11 +266,11 @@ export default function SelectedVideo({ selectedVideo }) {
 						</ScrollView>
 						{/* </Frame> */}
 					</p>
-					<Separator />
 
 					{/* 	</Frame> */}
 					{/* 	</div> */}
 				</WindowContent>
+				<Separator />
 				<Frame
 					variant="well"
 					className="selected-video__channel-date-container">
@@ -277,9 +279,9 @@ export default function SelectedVideo({ selectedVideo }) {
 						<span>{videoDate}</span>
 					</span>
 				</Frame>
+				<Separator />
+				<Comments />
 			</Window>
-
-			<Window></Window>
 		</div>
 	)
 }
