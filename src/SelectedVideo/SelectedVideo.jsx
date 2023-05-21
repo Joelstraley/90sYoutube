@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import './SelectedVideo.css'
 import YouTube from 'react-youtube'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -16,7 +16,6 @@ import {
 import MovieIcon from '../assets/Movie Frame (3-2-1).png'
 import Volume from '../assets/Volume.png'
 import MuteVolume from '../assets/Mute volume.png'
-
 import { convertDate } from '../assets/convertDate'
 import {
 	AppBar,
@@ -36,6 +35,26 @@ import youtube from '../assets/youtube'
 /* import { MediaPlayer } from 'win95-media-player/' */
 
 export default function SelectedVideo({ selectedVideo }) {
+	const [openMenu, setOpenMenu] = useState(false)
+
+	const [openState, setOpen] = useState(false)
+
+	const styles = {
+		popup: {
+			display: 'none',
+			opacity: '0',
+		},
+		show: {},
+	}
+
+	const handleOpen = () => {
+		if (openState === true) {
+			setOpen(false)
+		} else {
+			setOpen(true)
+		}
+	}
+
 	const videoRef = useRef(null)
 	const videoSrc = `https://www.youtube.com/embed/${selectedVideo.id.videoId}`
 	let times = 0
@@ -112,8 +131,8 @@ export default function SelectedVideo({ selectedVideo }) {
 	}
 
 	return (
-		<>
-			<Window className="selected-video">
+		<div className="selected-video">
+			<Window>
 				<WindowHeader>
 					<div className="selected-video__title">
 						<div className="selected-video__title--left">
@@ -125,135 +144,142 @@ export default function SelectedVideo({ selectedVideo }) {
 							{selectedVideo.snippet.title}
 						</div>
 						<div className="selected-video__title--right">
-							<Button className="selected-video__title--button">
+							<Button
+								className="selected-video__title--button"
+								/* onClick={() => handleOpen()} */
+							>
 								{/* <FontAwesomeIcon icon={faDash}  /> */}
 								__
 							</Button>
-							<Button className="selected-video__title--button">
+							<Button
+								className="selected-video__title--button"
+								/* onClick={() => handleOpen()} */
+							>
 								<FontAwesomeIcon icon={faXmark} />
 							</Button>
 						</div>
 					</div>
 				</WindowHeader>
-				<WindowContent /* style={{ padding: '1rem' }} */>
-					{/* 		<MediaPlayer
-						className="player"
-						playlist={playlist}
-						showVideo
-					/> */}
-					<Frame className="video-frame">
-						{/* 		<YouTube
-							videoSrc={videoSrc}
-							opts={opts}
-						/> */}
-
-						{/* 	<iframe
-								id="ytplayer"
-								type="text/html"
-								width="720"
-								height="405"
-								src="https://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1&controls=0&enablejsapi=1&modestbranding=1"
-								frameBorder="0"></iframe> */}
-
-						{/* 	<YouTube
-							videoSrc={videoSrc}
-							opts={opts}
-							ref={videoRef}
-							onReady={(e) => onPlayerReady(e)}
-						/> */}
-
-						<div className="video-frame__btns">
-							{/* 	<iframe
-								id="player"
-								className="selected-video__src"
-								title="Video Player"
-								credentialless
-								origin-when-cross-origin
-								src={videoSrc}
-								ref={videoRef}></iframe> */}
-
-							<iframe
-								id="player"
-								className="selected-video__src"
-								title="Video Player"
-								frameBorder="0"
-								allow="autoplay; encrypted-media"
-								allowFullScreen
-								/* 	credentialless
+				<Toolbar>
+					<Button
+						variant="menu"
+						size="sm">
+						File
+					</Button>
+					<Button
+						variant="menu"
+						size="sm">
+						Edit
+					</Button>
+					<Button
+						variant="menu"
+						size="sm"
+						disabled>
+						Save
+					</Button>
+				</Toolbar>
+				<WindowContent /* style={openState ? styles.hide : styles.show} */>
+					<div className="selected-video--frame-container">
+						<Frame className="video-frame">
+							<div className="video-frame__btns">
+								<iframe
+									id="player"
+									className="selected-video__src"
+									title="Video Player"
+									frameBorder="0"
+									allow="autoplay; encrypted-media"
+									allowFullScreen
+									/* 	credentialless
 							origin-when-cross-origin */
-								src={videoSrc}
-								ref={videoRef}
-							/>
-							<AppBar className="button-container">
-								<Toolbar className="buttons">
-									<Button
-										onClick={handlePlay}
-										default>
-										<FontAwesomeIcon icon={faPlay} />
-									</Button>
-									<Button
-										onClick={handleStop}
-										default>
-										<FontAwesomeIcon icon={faSquare} />
-									</Button>
-									{/* 	<Button
-								onClick={handlePause}
-								default>
-								<FontAwesomeIcon icon={faPause} />
-							</Button> */}
-									<Button default>
-										<FontAwesomeIcon icon={faFastBackward} />
-									</Button>
-									<Button default>
-										<FontAwesomeIcon icon={faBackward} />
-									</Button>
-									<Button default>
-										<FontAwesomeIcon icon={faForward} />
-									</Button>
-									<Button default>
-										<FontAwesomeIcon icon={faFastForward} />
-									</Button>
-									<img
-										className="buttons-slider__volume-img"
-										src={Volume}
-										alt="volume"
-									/>
-									<Slider
-										className="buttons-slider"
-										size="90px"
-										defaultValue={3}
-									/>
-								</Toolbar>
-							</AppBar>
-						</div>
-
-						{/* 		<YouTube
-							videoSrc={videoSrc}
-							opts={opts}
-							ref={videoRef}></YouTube> */}
-					</Frame>
+									src={videoSrc}
+									ref={videoRef}
+								/>
+								<AppBar className="button-container">
+									<Toolbar className="buttons">
+										<Button
+											onClick={handlePlay}
+											default>
+											<FontAwesomeIcon icon={faPlay} />
+										</Button>
+										<Button
+											onClick={handleStop}
+											default>
+											<FontAwesomeIcon icon={faSquare} />
+										</Button>
+										<Button default>
+											<FontAwesomeIcon icon={faFastBackward} />
+										</Button>
+										<Button default>
+											<FontAwesomeIcon icon={faBackward} />
+										</Button>
+										<Button default>
+											<FontAwesomeIcon icon={faForward} />
+										</Button>
+										<Button default>
+											<FontAwesomeIcon icon={faFastForward} />
+										</Button>
+										<img
+											className="buttons-slider__volume-img"
+											src={Volume}
+											alt="volume"
+										/>
+										<div className="buttons-slider">
+											<Slider
+												/* className="buttons-slider" */
+												size="30px"
+												defaultValue={2}
+											/>
+										</div>
+									</Toolbar>
+								</AppBar>
+							</div>
+						</Frame>
+					</div>
 
 					<Separator />
-					<Frame
-						variant="inside"
-						className="selected-video__channel-title-container">
-						<p className="selected-video__channel-title">
-							{selectedVideo.snippet.channelTitle}
-							<span> {videoDate}</span>
-						</p>
-						<Separator />
-
+					{/* 	<div className="selected-video__channel-details">
+						<p>Artist:</p> */}
+					<p>
+						<span style={{ 'text-decoration': 'underline' }}>A</span>rtist:
 						<Frame
 							variant="well"
-							className="footer">
+							className="selected-video__channel-title-container">
+							<span className="selected-video__channel-title">
+								{selectedVideo.snippet.channelTitle}
+							</span>
+						</Frame>
+					</p>
+					<Separator />
+					<p>
+						<span style={{ 'text-decoration': 'underline' }}>D</span>escription:
+						{/* 	<Frame
+							variant="well"
+							/* className="footer" */}
+						<ScrollView
+							style={{ width: '400px', height: '100px' }}
+							className="selected-video__channel-title-container">
 							<p className="selected-video__channel-desc">
 								{selectedVideo.snippet.description}
 							</p>
-						</Frame>
-						<Separator />
-					</Frame>
+						</ScrollView>
+						{/* </Frame> */}
+					</p>
+					<Separator />
+
+					{/* 	</Frame> */}
+					{/* 	</div> */}
 				</WindowContent>
+				<Frame
+					variant="well"
+					className="selected-video__channel-date-container">
+					<span className="selected-video__channel-date">
+						Date Posted:
+						<span>{videoDate}</span>
+					</span>
+				</Frame>
 			</Window>
-		</>
+
+			<Window></Window>
+		</div>
 	)
 }

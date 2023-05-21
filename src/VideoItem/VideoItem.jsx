@@ -10,8 +10,10 @@ import {
 	Window,
 } from 'react95'
 
+import { convertDate } from '../assets/convertDate'
+
 function VideoItem({ video, onVideoSelect, value }) {
-	const videoDate = video.snippet.publishedAt
+	const videoDate = convertDate(video.snippet.publishedAt)
 
 	return (
 		<>
