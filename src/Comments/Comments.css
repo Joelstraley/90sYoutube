@@ -7,10 +7,14 @@
     text-decoration: underline;
 }
 
-.comments-username {
-    color: blue;
-}
 
 .comments-text {
     color: black;
+}
+
+.comments-username {
+    color: blue;
+}
+legend {
+    color: blue;
 }

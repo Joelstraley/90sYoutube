@@ -1,9 +1,11 @@
 .video-item__tooltip {
     margin-top: 10em;
     white-space:pre-wrap;
+    width: 100%;
 }
 
 .recommended-video__src {
+    width: 100%;
     animation: load 100s;
 }
 

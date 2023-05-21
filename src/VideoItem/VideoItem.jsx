@@ -1,6 +1,7 @@
 import React from 'react'
 import './VideoItem.css'
 import {
+	Frame,
 	GroupBox,
 	ScrollView,
 	Separator,
@@ -25,17 +26,19 @@ function VideoItem({ video, onVideoSelect, value }) {
 				<ScrollView id="cutout">
 					<div className="recommended-video__src--loading"></div>
 					<img
-						className={`recommended-video__src`}
+						className="recommended-video__src"
 						title="Video Player"
 						style={{ marginRight: '20px' }}
 						alt="thumbnail"
 						src={video.snippet.thumbnails.medium.url}
 						onClick={() => onVideoSelect(video)}
 					/>
-
 					<p style={{ lineHeight: 1.3 }}>{video.snippet.channelTitle}</p>
-					<p>{videoDate}</p>
-					{/* <p>{video.snippet.description}</p> */}
+					<Frame
+						variant="well"
+						style={{ padding: '0 .25em' }}>
+						<p>Date Posted: {videoDate}</p>
+					</Frame>
 				</ScrollView>
 			</Tooltip>
 			<Separator />

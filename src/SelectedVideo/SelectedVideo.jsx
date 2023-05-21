@@ -254,9 +254,6 @@ export default function SelectedVideo({ selectedVideo }) {
 
 					<p className="selected-video__channel-desc-container">
 						<span style={{ 'text-decoration': 'underline' }}>D</span>escription:
-						{/* 	<Frame
-							variant="well"
-							/* className="footer" */}
 						<ScrollView
 							style={{ width: '400px', height: '50px' }}
 							className="selected-video__channel-title-container">
@@ -264,11 +261,7 @@ export default function SelectedVideo({ selectedVideo }) {
 								{selectedVideo.snippet.description}
 							</p>
 						</ScrollView>
-						{/* </Frame> */}
 					</p>
-
-					{/* 	</Frame> */}
-					{/* 	</div> */}
 				</WindowContent>
 				<Separator />
 				<Frame

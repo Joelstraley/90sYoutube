@@ -7,8 +7,6 @@ import {
 	WindowHeader,
 	ScrollView,
 } from 'react95'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faXmark } from '@fortawesome/free-solid-svg-icons'
 import '../Comments/Comments.css'
 
 function Comments() {
