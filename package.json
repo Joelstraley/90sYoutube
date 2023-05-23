@@ -2,6 +2,9 @@
   "name": "90syoutube",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node" : "19.x"
+  },
   "dependencies": {
     "@cassette/components": "^2.0.0-beta.4",
     "@cassette/core": "^2.0.0-beta.4",
