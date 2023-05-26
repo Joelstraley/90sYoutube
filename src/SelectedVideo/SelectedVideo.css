@@ -115,6 +115,7 @@ align-items: center;
     position: absolute;
     top: 50%;
     left: 50%;
+    width: 100%;
     transform: translate(-50%, -50%);
     display: flex;
     flex-wrap: wrap;
@@ -129,8 +130,13 @@ align-items: center;
 
 .buttons {
     display: flex;
+    margin: 0 5em;
   /*   justify-content: center; */
    /*  align-items: center; */
+}
+
+.button {
+  
 }
 
 .buttons-slider {
@@ -143,6 +149,11 @@ align-items: center;
     height: 2em;
     width: 2em;
     object-fit: scale-down;
+}
+
+.buttons-volume-container {
+    display: flex;
+
 }
 
 /* .test2 {

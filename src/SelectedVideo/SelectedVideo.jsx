@@ -148,15 +148,10 @@ export default function SelectedVideo({ selectedVideo }) {
 						<div className="selected-video__title--right">
 							<Button
 								className="selected-video__title--button"
-								/* onClick={() => handleOpen()} */
-							>
-								{/* <FontAwesomeIcon icon={faDash}  /> */}
+								default>
 								__
 							</Button>
-							<Button
-								className="selected-video__title--button"
-								/* onClick={() => handleOpen()} */
-							>
+							<Button className="selected-video__title--button">
 								<FontAwesomeIcon icon={faXmark} />
 							</Button>
 						</div>
@@ -199,38 +194,58 @@ export default function SelectedVideo({ selectedVideo }) {
 								<AppBar className="button-container">
 									<Toolbar className="buttons">
 										<Button
+											className="button"
 											onClick={handlePlay}
-											default>
+											variant="thin">
 											<FontAwesomeIcon icon={faPlay} />
 										</Button>
 										<Button
+											className="button"
 											onClick={handleStop}
-											default>
+											variant="thin">
 											<FontAwesomeIcon icon={faSquare} />
 										</Button>
-										<Button default>
+										<Separator
+											orientation="vertical"
+											size="2em"
+										/>
+										<Button
+											variant="thin"
+											className="button">
 											<FontAwesomeIcon icon={faFastBackward} />
 										</Button>
-										<Button default>
+										<Button
+											variant="thin"
+											className="button">
 											<FontAwesomeIcon icon={faBackward} />
 										</Button>
-										<Button default>
+										<Button
+											variant="thin"
+											className="button">
 											<FontAwesomeIcon icon={faForward} />
 										</Button>
-										<Button default>
+										<Button
+											variant="thin"
+											className="button">
 											<FontAwesomeIcon icon={faFastForward} />
 										</Button>
-										<img
-											className="buttons-slider__volume-img"
-											src={Volume}
-											alt="volume"
+										<Separator
+											orientation="vertical"
+											size="2em"
 										/>
-										<div className="buttons-slider">
-											<Slider
-												/* className="buttons-slider" */
-												size="30px"
-												defaultValue={2}
+										<div className="buttons-volume-container">
+											<img
+												className="buttons-slider__volume-img button"
+												src={Volume}
+												alt="volume"
 											/>
+											<div className="buttons-slider">
+												<Slider
+													/* className="buttons-slider" */
+													size="50px"
+													defaultValue={5}
+												/>
+											</div>
 										</div>
 									</Toolbar>
 								</AppBar>
