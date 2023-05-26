@@ -135,7 +135,7 @@ export default function SelectedVideo({ selectedVideo }) {
 	return (
 		<div className="selected-video">
 			<Window>
-				<WindowHeader>
+				<WindowHeader className="header-text">
 					<div className="selected-video__title">
 						<div className="selected-video__title--left">
 							<img

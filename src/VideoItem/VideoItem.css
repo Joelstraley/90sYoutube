@@ -4,6 +4,10 @@
     width: 100%;
 }
 
+.recommended-video__title > legend {
+    color: black;
+}
+
 .recommended-video__src {
     width: 100%;
     animation: load 100s;
