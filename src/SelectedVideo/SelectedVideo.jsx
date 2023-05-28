@@ -194,13 +194,11 @@ export default function SelectedVideo({ selectedVideo }) {
 								<AppBar className="button-container">
 									<Toolbar className="buttons">
 										<Button
-											className="button"
 											onClick={handlePlay}
 											variant="thin">
 											<FontAwesomeIcon icon={faPlay} />
 										</Button>
 										<Button
-											className="button"
 											onClick={handleStop}
 											variant="thin">
 											<FontAwesomeIcon icon={faSquare} />
@@ -209,24 +207,16 @@ export default function SelectedVideo({ selectedVideo }) {
 											orientation="vertical"
 											size="2em"
 										/>
-										<Button
-											variant="thin"
-											className="button">
+										<Button variant="thin">
 											<FontAwesomeIcon icon={faFastBackward} />
 										</Button>
-										<Button
-											variant="thin"
-											className="button">
+										<Button variant="thin">
 											<FontAwesomeIcon icon={faBackward} />
 										</Button>
-										<Button
-											variant="thin"
-											className="button">
+										<Button variant="thin">
 											<FontAwesomeIcon icon={faForward} />
 										</Button>
-										<Button
-											variant="thin"
-											className="button">
+										<Button variant="thin">
 											<FontAwesomeIcon icon={faFastForward} />
 										</Button>
 										<Separator
@@ -241,7 +231,6 @@ export default function SelectedVideo({ selectedVideo }) {
 											/>
 											<div className="buttons-slider">
 												<Slider
-													/* className="buttons-slider" */
 													size="50px"
 													defaultValue={5}
 												/>
