@@ -123,7 +123,7 @@ export default function SelectedVideo({ selectedVideo }) {
 	const handleStop = () => {
 		/* videoRef.current.contentWindow.postMessage('stop', '*') */
 		console.log(playY)
-		playY = playY.slice(0, -40)
+		playY = playY.slice(0, -39)
 		console.log(playY)
 		videoRef.current.src = playY
 		times = 0
