@@ -114,8 +114,6 @@ export default function SelectedVideo({ selectedVideo }) {
 	} */
 
 	const handlePlay = () => {
-		console.log(videoRef)
-		/* videoRef.current.contentWindow.postMessage('play', '*') */
 		if (times === 0) {
 			playY = videoRef.current.src += '?autoplay=1&controls=0&modestbranding=1'
 			times = 1
@@ -125,7 +123,7 @@ export default function SelectedVideo({ selectedVideo }) {
 	const handleStop = () => {
 		/* videoRef.current.contentWindow.postMessage('stop', '*') */
 		console.log(playY)
-		playY = playY.slice(0, -27)
+		playY = playY.slice(0, -40)
 		console.log(playY)
 		videoRef.current.src = playY
 		times = 0
