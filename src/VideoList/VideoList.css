@@ -1,6 +1,5 @@
 .related-videos {
     margin-right: 1em;
-    /*  display: inline-table; */
     display: flex;
     flex-direction: column;
     width: 99%;

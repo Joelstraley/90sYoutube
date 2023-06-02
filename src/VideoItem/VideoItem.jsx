@@ -1,16 +1,6 @@
 import React from 'react'
 import './VideoItem.css'
-import {
-	Frame,
-	GroupBox,
-	ScrollView,
-	Separator,
-	Tab,
-	TabBody,
-	Tooltip,
-	Window,
-} from 'react95'
-
+import { Frame, GroupBox, ScrollView, Separator, Tooltip } from 'react95'
 import { convertDate } from '../assets/convertDate'
 
 function VideoItem({ video, onVideoSelect, value }) {

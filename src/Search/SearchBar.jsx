@@ -9,11 +9,14 @@ export default function SearchBar({ onFormSubmit }) {
 	const handleSubmit = (e) => {
 		onFormSubmit(searchTerm)
 		e.preventDefault()
-		/* document.getElementById('search-input').reset() */
 	}
 
 	const openImage = () => {
-		window.open('./../assets/BillAndJay.jpg', '_blank', 'noopener,noreferrer')
+		window.open(
+			'./../assets/BillAndJay.jpg',
+			'Image',
+			'width=largeImage.stylewidth,height=largeImage.style.height,resizable=1'
+		)
 	}
 
 	return (

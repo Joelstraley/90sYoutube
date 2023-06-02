@@ -1,33 +1,18 @@
 import { useState, useEffect } from 'react'
 import { ReactDOM } from 'react-dom'
-import logo from './logo.svg'
 import './App.css'
+
 import SearchBar from './Search/SearchBar'
 import SelectedVideo from './SelectedVideo/SelectedVideo'
 import VideoList from './VideoList/VideoList'
 import Loading from './Loading/Loading'
 import youtube from './assets/youtube'
 
-import {
-	AppBar,
-	Button,
-	Toolbar,
-	Window,
-	WindowContent,
-	ScrollView,
-	MenuList,
-	MenuListItem,
-	Separator,
-	styleReset,
-} from 'react95'
+import { styleReset } from 'react95'
 import { createGlobalStyle, ThemeProvider } from 'styled-components'
-
-/* Pick a theme of your choice */
 import original from 'react95/dist/themes/original'
 
-import pamelaAnderson from 'react95/dist/themes/pamelaAnderson'
-
-/* Original Windows95 font (optional) */
+/* Original Windows95 font */
 import ms_sans_serif from 'react95/dist/fonts/ms_sans_serif.woff2'
 import ms_sans_serif_bold from 'react95/dist/fonts/ms_sans_serif_bold.woff2'
 
@@ -52,7 +37,6 @@ const GlobalStyles = createGlobalStyle`
 function App() {
 	const [videoList, setVideoList] = useState([])
 	const [selectedVideo, setSelectedVideo] = useState(null)
-	/* const [searchTerm, setSearchTerm] = useState('search') */
 
 	const [loading, setLoading] = useState(true)
 	const [percent, setPercent] = useState(0)

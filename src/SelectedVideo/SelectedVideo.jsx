@@ -1,117 +1,42 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useRef } from 'react'
+
 import './SelectedVideo.css'
-import YouTube from 'react-youtube'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {
-	faPlay,
-	faSquare,
-	faPause,
-	faBackward,
-	faFastBackward,
-	faForward,
-	faFastForward,
-	faDash,
-	faXmark,
-} from '@fortawesome/free-solid-svg-icons'
-import Comments from '../Comments/Comments'
-import MovieIcon from '../assets/Movie Frame (3-2-1).png'
-import Volume from '../assets/Volume.png'
-import MuteVolume from '../assets/Mute volume.png'
-import { convertDate } from '../assets/convertDate'
 import {
 	AppBar,
 	Button,
 	Frame,
 	Hourglass,
-	ProgressBar,
 	Slider,
 	Separator,
 	Toolbar,
-	Handle,
-	GroupBox,
 	Window,
 	WindowHeader,
 	WindowContent,
 	ScrollView,
 } from 'react95'
-import youtube from '../assets/youtube'
-/* import { MediaPlayer } from 'win95-media-player/' */
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+	faPlay,
+	faSquare,
+	faBackward,
+	faFastBackward,
+	faForward,
+	faFastForward,
+	faXmark,
+} from '@fortawesome/free-solid-svg-icons'
+import MovieIcon from '../assets/Movie Frame (3-2-1).png'
+import Volume from '../assets/Volume.png'
+
+import { convertDate } from '../assets/convertDate'
+import Comments from '../Comments/Comments'
 
 export default function SelectedVideo({ selectedVideo }) {
-	const [openMenu, setOpenMenu] = useState(false)
-
-	const [openState, setOpen] = useState(false)
-
-	const styles = {
-		popup: {
-			display: 'none',
-			opacity: '0',
-		},
-		show: {},
-	}
-
-	const handleOpen = () => {
-		if (openState === true) {
-			setOpen(false)
-		} else {
-			setOpen(true)
-		}
-	}
-
 	const videoRef = useRef(null)
 	const videoSrc = `https://www.youtube.com/embed/${selectedVideo.id.videoId}`
 	let times = 0
 	let playY
-	/* console.log(`${selectedVideo.id.videoId}`) */
-	/* 
-	const createPlayer = (videoSrc) => {
-		new window.YT.Player('player', {
-			height: '360',
-			width: '640',
-			videoId: videoSrc,
-		})
-	} */
-	/* 
-	useEffect(() => {
-		// Load the YouTube Iframe API script
-		const scriptTag = document.createElement('script')
-		scriptTag.src = 'https://www.youtube.com/iframe_api'
-		document.body.appendChild(scriptTag)
-
-		// Add a global function for creating the player
-		window.onYouTubeIframeAPIReady = () => createPlayer(videoSrc)
-	}, [])
-
-	useEffect(() => {
-		// Call the createPlayer function when the video ID changes
-		if (videoSrc !== '') {
-			createPlayer(videoSrc)
-		}
-	}, [videoSrc]) */
 
 	const videoDate = convertDate(selectedVideo.snippet.publishedAt)
-
-	/* const opts = {
-		height: '390',
-		width: '640',
-		playerVars: {
-			// https://developers.google.com/youtube/player_parameters
-			autoplay: 1,
-		},
-	} */
-
-	/* function onPlayerReady(event) {
-		var embedCode = event.target.getVideoEmbedCode()
-		event.target.playVideo()
-		if (document.getElementById('embed-code')) {
-			document.getElementById('embed-code').innerHTML = embedCode
-		}
-	}
- */
-
-	/* 	const handlePause = () => {
-		videoRef.current.contentWindow.postMessage('pause', '*')
-	} */
 
 	const handlePlay = () => {
 		if (times === 0) {
@@ -121,10 +46,7 @@ export default function SelectedVideo({ selectedVideo }) {
 	}
 
 	const handleStop = () => {
-		/* videoRef.current.contentWindow.postMessage('stop', '*') */
-		console.log(playY)
 		playY = playY.slice(0, -39)
-		console.log(playY)
 		videoRef.current.src = playY
 		times = 0
 	}
@@ -174,7 +96,7 @@ export default function SelectedVideo({ selectedVideo }) {
 								Save
 							</Button>
 						</Toolbar>
-						<WindowContent /* style={openState ? styles.hide : styles.show} */>
+						<WindowContent>
 							<div className="selected-video--frame-container">
 								<Frame className="video-frame">
 									<div className="video-frame__btns">

@@ -1,12 +1,4 @@
-import {
-	Button,
-	Frame,
-	GroupBox,
-	Window,
-	WindowContent,
-	WindowHeader,
-	ScrollView,
-} from 'react95'
+import { Frame, GroupBox, ScrollView } from 'react95'
 import '../Comments/Comments.css'
 
 function Comments() {
@@ -19,12 +11,10 @@ function Comments() {
 					style={{ margin: '2em 2em', background: 'white' }}
 					className="comments-section">
 					<p className="comments-header">Comments</p>
-					{/* 		<p className="comments-header">Comments</p> */}
 					<p>
 						<GroupBox
 							variant="flat"
 							className="comments-username"
-							/* style={{ color: 'teal' }} */
 							label="AlanisFan">
 							<p className="comments-text">
 								Wow! Videos on the internet are so cool :-)

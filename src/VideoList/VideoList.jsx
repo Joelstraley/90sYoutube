@@ -1,34 +1,11 @@
-import { useState } from 'react'
-import {
-	Button,
-	MenuList,
-	ScrollView,
-	Tab,
-	TabBody,
-	Tabs,
-	Toolbar,
-	Window,
-	WindowContent,
-	WindowHeader,
-} from 'react95'
+import '../VideoList/VideoList.css'
+import { Button, ScrollView, Toolbar, Window, WindowHeader } from 'react95'
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 import VideoItem from '../VideoItem/VideoItem'
-import '../VideoList/VideoList.css'
 
 export default function VideoList({ videoList, onVideoSelect }) {
-	/* 	const [state, setState] = useState({
-		activeTab: 1,
-	})
-
-	const handleChange = (value) => setState({ activeTab: value })
-
-	const { activeTab } = state */
-	/* <Tabs value={activeTab} onChange={handleChange}>
-	<Tab value={0}>Shoes</Tab>
-	<Tab value={1}>Accesories</Tab>
-	<Tab value={2}>Clothing</Tab */
-
 	if (!videoList) return <></>
 
 	const listOfVideos = videoList.map((video, id) => (
@@ -40,8 +17,6 @@ export default function VideoList({ videoList, onVideoSelect }) {
 	))
 	return (
 		<>
-			{/* <>
-			{/* <ScrollView style={{ width: '300px', height: '200px' }}> */}
 			<div className="related-videos">
 				<Window>
 					<WindowHeader>
@@ -51,17 +26,8 @@ export default function VideoList({ videoList, onVideoSelect }) {
 							</div>
 
 							<div className="selected-video__title--right">
-								<Button
-									className="selected-video__title--button"
-									/* onClick={() => handleOpen()} */
-								>
-									{/* <FontAwesomeIcon icon={faDash}  /> */}
-									__
-								</Button>
-								<Button
-									className="selected-video__title--button"
-									/* onClick={() => handleOpen()} */
-								>
+								<Button className="selected-video__title--button">__</Button>
+								<Button className="selected-video__title--button">
 									<FontAwesomeIcon icon={faXmark} />
 								</Button>
 							</div>
