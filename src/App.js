@@ -11,6 +11,7 @@ import youtube from './assets/youtube'
 import { styleReset } from 'react95'
 import { createGlobalStyle, ThemeProvider } from 'styled-components'
 import original from 'react95/dist/themes/original'
+import hotdog from 'react95/dist/themes/pamelaAnderson'
 
 /* Original Windows95 font */
 import ms_sans_serif from 'react95/dist/fonts/ms_sans_serif.woff2'
@@ -92,7 +93,7 @@ function App() {
 	return (
 		<>
 			<GlobalStyles />
-			<ThemeProvider theme={original}>
+			<ThemeProvider theme={hotdog}>
 				<SearchBar onFormSubmit={handleSubmit} />
 				{loading ? (
 					<Loading percent={percent} />

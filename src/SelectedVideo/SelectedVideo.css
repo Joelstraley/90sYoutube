@@ -94,11 +94,12 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    z-index: 1;
+  /*   z-index: 1; */
 }
 
 .button-container {
     margin-top: 16.20em;
+    align-items: center;
 }
 
 .buttons-slider {
