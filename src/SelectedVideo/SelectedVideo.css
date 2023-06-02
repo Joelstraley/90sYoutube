@@ -12,13 +12,13 @@
 
 .selected-video {
    /*  margin-right: 40px; */
-   margin-right: 1em;
+/*    margin-right: 1em;
     margin-left: 6em;
-    margin-bottom: 1em;
+    margin-bottom: 1em; */
    /*  display: inline-table; */
     display: flex;
     flex-direction: column;
-align-items: center;
+/* align-items: center; */
     height: 50%;
    /*  width: 40%; */
    /* width: 99%; */
@@ -129,8 +129,8 @@ align-items: center;
 }
 
 .buttons {
-    display: flex;
-    margin: 0 5em;
+ /*    display: flex;
+    margin: 0 5em; */
   /*   justify-content: center; */
    /*  align-items: center; */
 }
@@ -157,6 +157,6 @@ align-items: center;
 } */
 
 
-iframe { 
-    width: 29em;
-}
+/* iframe { 
+    width: 29em; 
+} */

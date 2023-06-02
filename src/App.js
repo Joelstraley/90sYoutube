@@ -63,7 +63,6 @@ function App() {
 				setPercent((previousPercent) => {
 					if (previousPercent === 100) {
 						setLoading(false)
-						/* return */
 					}
 
 					const diff = Math.random() * 10
@@ -78,9 +77,6 @@ function App() {
 		}
 	}, [loading])
 
-	/* 	const getInput = (input) => {
-		setSearchTerm(input)
-	} */
 	const onVideoSelect = (video) => {
 		setSelectedVideo(video)
 	}
@@ -91,24 +87,22 @@ function App() {
 			const res = await youtube.get('search', {
 				params: {
 					part: 'snippet',
-					maxResults: 10,
+					maxResults: 5,
 					key: process.env.REACT_APP_YOUTUBE_API_KEY,
 					q: searchTerm,
 				},
 			})
-			const data = await res
-			console.log('res', data)
 			setSelectedVideo(res.data.items[0])
 			res.data.items.shift()
 			setVideoList(res.data.items)
 		} catch (err) {
 			console.error(err)
-			setSelectedVideo(`S7g4PfBrQf4`)
+			setSelectedVideo(null)
 		}
 	}
 
 	useEffect(() => {
-		handleSubmit('joel')
+		handleSubmit('Windows 95')
 	}, [])
 
 	return (
