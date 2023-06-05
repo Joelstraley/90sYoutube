@@ -120,10 +120,10 @@ function Main() {
 		setTheme(themes[themeIndex])
 	}
 
-	const handlePlay = () => {
+	/* 	const handlePlay = () => {
 		let filesDoneAudio = new Audio('../assets/filesDone.mp3')
 		filesDoneAudio.play()
-	}
+	} */
 
 	useEffect(() => {
 		handleSubmit('Windows 95')
@@ -136,7 +136,7 @@ function Main() {
 				<SearchBar
 					onFormSubmit={handleSubmit}
 					onThemeChange={handleTheme}
-					play={handlePlay}
+					/* play={handlePlay} */
 				/>
 				{loading ? (
 					<Window
