@@ -9,6 +9,22 @@
     overflow: hidden;
 }
 
+.loading-window {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 50%;
+    left: 30%;
+}
+
+.loading-window-content {
+    display: flex;
+}
+
+.loading-computor-icon {
+    object-fit: contain;
+    margin-right: 1em;
+}
 
 @media only screen and (min-width: 1000px){
     .video-container {
@@ -31,7 +47,6 @@
         display: flex;
         margin: 0 5em;
     }
-
 }
 
 @media only screen and (max-width: 599px){
@@ -57,9 +72,12 @@
     .related-videos {
         margin-left: .1em
     }
+
+    .loading-window {
+        width: 100%;
+        left: 0;
+    }
 }
-
-
 
 @media only screen and (min-width: 400px){
     iframe { 
@@ -68,7 +86,7 @@
 
     .selected-video__src {
         border-radius: 10px;
-    }    
+    }
 }
 
 @media only screen and (max-width: 399px){
@@ -90,6 +108,10 @@
    .buttons-volume-container {
         overflow: hidden; 
     } 
+    .loading-window {
+        width: 100%;
+        left: 0;
+    }
 }
 
 @media only screen and (min-width: 1450px){

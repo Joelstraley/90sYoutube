@@ -1,5 +1,3 @@
-import React from 'react'
-import './Loading.css'
 import { ProgressBar, WindowContent } from 'react95'
 
 function Loading({ percent }) {

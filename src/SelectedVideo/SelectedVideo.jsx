@@ -165,7 +165,7 @@ export default function SelectedVideo({ selectedVideo }) {
 
 							<Separator />
 							<p className="selected-video__channel-title-label">
-								<span style={{ 'text-decoration': 'underline' }}>A</span>rtist:
+								<span style={{ textDecoration: 'underline' }}>A</span>rtist:
 								<Frame
 									variant="well"
 									className="selected-video__channel-title-container">
@@ -176,7 +176,7 @@ export default function SelectedVideo({ selectedVideo }) {
 							</p>
 
 							<p className="selected-video__channel-desc-container">
-								<span style={{ 'text-decoration': 'underline' }}>D</span>
+								<span style={{ textDecoration: 'underline' }}>D</span>
 								escription:
 								<ScrollView
 									style={{ width: '400px', height: '50px' }}

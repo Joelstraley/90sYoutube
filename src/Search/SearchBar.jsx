@@ -3,7 +3,7 @@ import { Button, TextInput } from 'react95'
 import avatar from './../assets/avatar-image.png'
 import './SearchBar.css'
 
-export default function SearchBar({ onFormSubmit }) {
+export default function SearchBar({ onFormSubmit, onThemeChange }) {
 	const [searchTerm, setSearchTerm] = useState('')
 
 	const handleSubmit = (e) => {
@@ -11,13 +11,18 @@ export default function SearchBar({ onFormSubmit }) {
 		e.preventDefault()
 	}
 
-	const openImage = () => {
+	const handleClick = (e) => {
+		onThemeChange()
+		e.preventDefault()
+	}
+
+	/* 	const openImage = () => {
 		window.open(
 			'./../assets/BillAndJay.jpg',
 			'Image',
 			'width=largeImage.stylewidth,height=largeImage.style.height,resizable=1'
 		)
-	}
+	} */
 
 	return (
 		<div className="search-bar">
@@ -27,7 +32,8 @@ export default function SearchBar({ onFormSubmit }) {
 						className="search-bar__logo--image"
 						alt="Windows-Monitor-Logo"
 						src="https://win98icons.alexmeub.com/icons/png/monitor_windows.png"
-						onClick={() => openImage()}
+						onClick={handleClick}
+						/* onClick={() => openImage() }*/
 					/>
 					<h3 className="search-bar__title">NetTube</h3>
 				</div>
