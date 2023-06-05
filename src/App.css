@@ -17,6 +17,10 @@
     left: 30%;
 }
 
+.loading-window-title {
+    text-align: center;
+}
+
 .loading-window-content {
     display: flex;
 }

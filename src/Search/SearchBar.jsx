@@ -3,11 +3,12 @@ import { Button, TextInput } from 'react95'
 import avatar from './../assets/avatar-image.png'
 import './SearchBar.css'
 
-export default function SearchBar({ onFormSubmit, onThemeChange }) {
+export default function SearchBar({ onFormSubmit, onThemeChange, play }) {
 	const [searchTerm, setSearchTerm] = useState('')
 
 	const handleSubmit = (e) => {
 		onFormSubmit(searchTerm)
+		play()
 		e.preventDefault()
 	}
 

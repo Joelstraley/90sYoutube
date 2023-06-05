@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-
+import useSound from 'use-sound'
 import SearchBar from '../Search/SearchBar'
 import SelectedVideo from '../SelectedVideo/SelectedVideo'
 import VideoList from '../VideoList/VideoList'
@@ -8,6 +8,7 @@ import youtube from '../assets/youtube'
 import './Main.css'
 
 import computerIcon from '../assets/Installation on computer (discs).png'
+import filesDone from './../assets/filesDone.mp3'
 
 import { styleReset, Window, WindowContent, WindowHeader } from 'react95'
 import { createGlobalStyle, ThemeProvider } from 'styled-components'
@@ -105,7 +106,6 @@ function Main() {
 		/* 		if (themeIndex === 10) {
 			themeIndex = 0
 		} */
-		console.log('theme', themeIndex)
 		let themes = [
 			original,
 			pamelaAnderson,
@@ -122,6 +122,11 @@ function Main() {
 		setTheme(themes[themeIndex])
 	}
 
+	const handlePlay = () => {
+		let filesDoneAudio = new Audio('../assets/filesDone.mp3')
+		filesDoneAudio.play()
+	}
+
 	useEffect(() => {
 		handleSubmit('Windows 95')
 	}, [])
@@ -133,6 +138,7 @@ function Main() {
 				<SearchBar
 					onFormSubmit={handleSubmit}
 					onThemeChange={handleTheme}
+					play={handlePlay}
 				/>
 				{loading ? (
 					<Window
@@ -151,7 +157,7 @@ function Main() {
 								<p>
 									Setup is preparing the Windows NetTube 95 Setup Wizard, which
 									will guide you through the rest of the setup process. Please
-									be patient. This is the internet in 1995.
+									be patient. It is 1995.
 								</p>
 							</div>
 							<div>
