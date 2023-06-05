@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import useSound from 'use-sound'
 import SearchBar from '../Search/SearchBar'
 import SelectedVideo from '../SelectedVideo/SelectedVideo'
 import VideoList from '../VideoList/VideoList'
@@ -8,7 +7,6 @@ import youtube from '../assets/youtube'
 import './Main.css'
 
 import computerIcon from '../assets/Installation on computer (discs).png'
-import filesDone from './../assets/filesDone.mp3'
 
 import { styleReset, Window, WindowContent, WindowHeader } from 'react95'
 import { createGlobalStyle, ThemeProvider } from 'styled-components'
