@@ -106,9 +106,9 @@ export default function SelectedVideo({ selectedVideo }) {
 											title="Video Player"
 											frameBorder="0"
 											allow="autoplay; encrypted-media"
-											allowFullScreen
-											/* 	credentialless
-							origin-when-cross-origin */
+											sandbox="allow-scripts allow-same-origin allow-presentation"
+											/* 	credentialless */
+											/* 	origin-when-cross-origin */
 											src={videoSrc}
 											ref={videoRef}
 										/>
