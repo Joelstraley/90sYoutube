@@ -8,7 +8,7 @@ export default function SearchBar({ onFormSubmit, onThemeChange, play }) {
 
 	const handleSubmit = (e) => {
 		onFormSubmit(searchTerm)
-		/* 	play() */
+		play()
 		e.preventDefault()
 	}
 
@@ -16,14 +16,6 @@ export default function SearchBar({ onFormSubmit, onThemeChange, play }) {
 		onThemeChange()
 		e.preventDefault()
 	}
-
-	/* 	const openImage = () => {
-		window.open(
-			'./../assets/BillAndJay.jpg',
-			'Image',
-			'width=largeImage.stylewidth,height=largeImage.style.height,resizable=1'
-		)
-	} */
 
 	return (
 		<div className="search-bar">
@@ -34,7 +26,6 @@ export default function SearchBar({ onFormSubmit, onThemeChange, play }) {
 						alt="Windows-Monitor-Logo"
 						src="https://win98icons.alexmeub.com/icons/png/monitor_windows.png"
 						onClick={handleClick}
-						/* onClick={() => openImage() }*/
 					/>
 					<h3 className="search-bar__title">NetTube</h3>
 				</div>

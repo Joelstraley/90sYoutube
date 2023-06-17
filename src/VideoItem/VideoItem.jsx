@@ -3,7 +3,7 @@ import './VideoItem.css'
 import { Frame, GroupBox, ScrollView, Separator, Tooltip } from 'react95'
 import { convertDate } from '../assets/convertDate'
 
-function VideoItem({ video, onVideoSelect, value }) {
+function VideoItem({ video, onVideoSelect, value, theme }) {
 	const videoDate = convertDate(video.snippet.publishedAt)
 
 	return (
@@ -16,7 +16,7 @@ function VideoItem({ video, onVideoSelect, value }) {
 				<ScrollView id="cutout">
 					<GroupBox
 						label={`${video.snippet.title}`}
-						className="recommended-video__title">
+						className={'recommended-video__title'}>
 						<div className="recommended-video__src--loading"></div>
 						<img
 							className="recommended-video__src"

@@ -7,6 +7,7 @@ import youtube from '../assets/youtube'
 import './Main.css'
 
 import computerIcon from '../assets/Installation on computer (discs).png'
+import filesDone from '../assets/filesDone.mp3'
 
 import { styleReset, Window, WindowContent, WindowHeader } from 'react95'
 import { createGlobalStyle, ThemeProvider } from 'styled-components'
@@ -44,6 +45,9 @@ const GlobalStyles = createGlobalStyle`
     font-family: 'ms_sans_serif';
   }
 `
+
+let themeIndex = 0
+
 function Main() {
 	const [videoList, setVideoList] = useState([])
 	const [selectedVideo, setSelectedVideo] = useState(null)
@@ -97,13 +101,11 @@ function Main() {
 		}
 	}
 
-	let themeIndex = 0
-
 	const handleTheme = () => {
 		themeIndex++
-		/* 		if (themeIndex === 10) {
+		if (themeIndex === 10) {
 			themeIndex = 0
-		} */
+		}
 		let themes = [
 			original,
 			pamelaAnderson,
@@ -120,10 +122,10 @@ function Main() {
 		setTheme(themes[themeIndex])
 	}
 
-	/* 	const handlePlay = () => {
-		let filesDoneAudio = new Audio('../assets/filesDone.mp3')
+	const handlePlay = () => {
+		let filesDoneAudio = new Audio(filesDone)
 		filesDoneAudio.play()
-	} */
+	}
 
 	useEffect(() => {
 		handleSubmit('Windows 95')
@@ -136,7 +138,7 @@ function Main() {
 				<SearchBar
 					onFormSubmit={handleSubmit}
 					onThemeChange={handleTheme}
-					/* play={handlePlay} */
+					play={handlePlay}
 				/>
 				{loading ? (
 					<Window
@@ -174,6 +176,7 @@ function Main() {
 							<VideoList
 								videoList={videoList}
 								onVideoSelect={onVideoSelect}
+								theme={theme}
 							/>
 						</div>
 					</>

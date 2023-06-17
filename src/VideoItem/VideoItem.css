@@ -8,6 +8,10 @@
     color: black;
 }
 
+.recommended-video__title-text-color {
+    color: green;
+}
+
 .recommended-video__src {
     width: 100%;
     animation: load 100s;

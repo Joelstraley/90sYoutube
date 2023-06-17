@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import VideoItem from '../VideoItem/VideoItem'
 
-export default function VideoList({ videoList, onVideoSelect }) {
+export default function VideoList({ videoList, onVideoSelect, theme }) {
 	if (!videoList) return <></>
 
 	const listOfVideos = videoList.map((video, id) => (
@@ -13,6 +13,7 @@ export default function VideoList({ videoList, onVideoSelect }) {
 			key={id}
 			onVideoSelect={onVideoSelect}
 			video={video}
+			theme={theme}
 		/>
 	))
 	return (
