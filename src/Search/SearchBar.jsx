@@ -8,6 +8,7 @@ export default function SearchBar({ onFormSubmit, onThemeChange, play }) {
 
 	const handleSubmit = (e) => {
 		onFormSubmit(searchTerm)
+		setSearchTerm('')
 		play()
 		e.preventDefault()
 	}
